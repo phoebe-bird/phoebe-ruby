@@ -1,0 +1,136 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Recent
+          type historic_list_params =
+            {
+              region_code: String,
+              y_: Integer,
+              m: Integer,
+              cat: Phoebe::Models::Data::Observations::Recent::HistoricListParams::cat,
+              detail: Phoebe::Models::Data::Observations::Recent::HistoricListParams::detail,
+              hotspot: bool,
+              include_provisional: bool,
+              max_results: Integer,
+              r: ::Array[String],
+              rank: Phoebe::Models::Data::Observations::Recent::HistoricListParams::rank,
+              spp_locale: String
+            }
+            & Phoebe::Internal::Type::request_parameters
+
+          class HistoricListParams < Phoebe::Internal::Type::BaseModel
+            extend Phoebe::Internal::Type::RequestParameters::Converter
+            include Phoebe::Internal::Type::RequestParameters
+
+            attr_accessor region_code: String
+
+            attr_accessor y_: Integer
+
+            attr_accessor m: Integer
+
+            attr_reader cat: Phoebe::Models::Data::Observations::Recent::HistoricListParams::cat?
+
+            def cat=: (
+              Phoebe::Models::Data::Observations::Recent::HistoricListParams::cat
+            ) -> Phoebe::Models::Data::Observations::Recent::HistoricListParams::cat
+
+            attr_reader detail: Phoebe::Models::Data::Observations::Recent::HistoricListParams::detail?
+
+            def detail=: (
+              Phoebe::Models::Data::Observations::Recent::HistoricListParams::detail
+            ) -> Phoebe::Models::Data::Observations::Recent::HistoricListParams::detail
+
+            attr_reader hotspot: bool?
+
+            def hotspot=: (bool) -> bool
+
+            attr_reader include_provisional: bool?
+
+            def include_provisional=: (bool) -> bool
+
+            attr_reader max_results: Integer?
+
+            def max_results=: (Integer) -> Integer
+
+            attr_reader r: ::Array[String]?
+
+            def r=: (::Array[String]) -> ::Array[String]
+
+            attr_reader rank: Phoebe::Models::Data::Observations::Recent::HistoricListParams::rank?
+
+            def rank=: (
+              Phoebe::Models::Data::Observations::Recent::HistoricListParams::rank
+            ) -> Phoebe::Models::Data::Observations::Recent::HistoricListParams::rank
+
+            attr_reader spp_locale: String?
+
+            def spp_locale=: (String) -> String
+
+            def initialize: (
+              region_code: String,
+              y_: Integer,
+              m: Integer,
+              ?cat: Phoebe::Models::Data::Observations::Recent::HistoricListParams::cat,
+              ?detail: Phoebe::Models::Data::Observations::Recent::HistoricListParams::detail,
+              ?hotspot: bool,
+              ?include_provisional: bool,
+              ?max_results: Integer,
+              ?r: ::Array[String],
+              ?rank: Phoebe::Models::Data::Observations::Recent::HistoricListParams::rank,
+              ?spp_locale: String,
+              ?request_options: Phoebe::request_opts
+            ) -> void
+
+            type cat =
+              :species
+              | :slash
+              | :issf
+              | :spuh
+              | :hybrid
+              | :domestic
+              | :form
+              | :intergrade
+
+            module Cat
+              extend Phoebe::Internal::Type::Enum
+
+              SPECIES: :species
+              SLASH: :slash
+              ISSF: :issf
+              SPUH: :spuh
+              HYBRID: :hybrid
+              DOMESTIC: :domestic
+              FORM: :form
+              INTERGRADE: :intergrade
+
+              def self?.values: -> ::Array[Phoebe::Models::Data::Observations::Recent::HistoricListParams::cat]
+            end
+
+            type detail = :simple | :full
+
+            module Detail
+              extend Phoebe::Internal::Type::Enum
+
+              SIMPLE: :simple
+              FULL: :full
+
+              def self?.values: -> ::Array[Phoebe::Models::Data::Observations::Recent::HistoricListParams::detail]
+            end
+
+            type rank = :mrec | :create
+
+            module Rank
+              extend Phoebe::Internal::Type::Enum
+
+              MREC: :mrec
+              CREATE: :create
+
+              def self?.values: -> ::Array[Phoebe::Models::Data::Observations::Recent::HistoricListParams::rank]
+            end
+          end
+        end
+      end
+    end
+  end
+end

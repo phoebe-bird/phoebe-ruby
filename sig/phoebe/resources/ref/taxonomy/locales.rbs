@@ -1,0 +1,16 @@
+module Phoebe
+  module Resources
+    class Ref
+      class Taxonomy
+        class Locales
+          def list: (
+            ?accept_language: String,
+            ?request_options: Phoebe::request_opts
+          ) -> Phoebe::Models::Ref::Taxonomy::locale_list_response
+
+          def initialize: (client: Phoebe::Client) -> void
+        end
+      end
+    end
+  end
+end

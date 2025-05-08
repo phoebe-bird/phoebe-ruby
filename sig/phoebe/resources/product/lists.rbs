@@ -1,0 +1,17 @@
+module Phoebe
+  module Resources
+    class Product
+      class Lists
+        attr_reader historical: Phoebe::Resources::Product::Lists::Historical
+
+        def retrieve: (
+          String region_code,
+          ?max_results: Integer,
+          ?request_options: Phoebe::request_opts
+        ) -> Phoebe::Models::Product::list_retrieve_response
+
+        def initialize: (client: Phoebe::Client) -> void
+      end
+    end
+  end
+end

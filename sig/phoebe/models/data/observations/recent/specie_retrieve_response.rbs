@@ -1,0 +1,13 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Recent
+          type specie_retrieve_response = ::Array[Phoebe::Data::Observation]
+
+          SpecieRetrieveResponse: Phoebe::Internal::Type::Converter
+        end
+      end
+    end
+  end
+end

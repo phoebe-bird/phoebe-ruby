@@ -1,0 +1,94 @@
+module Phoebe
+  module Models
+    module Ref
+      module Hotspot
+        type info_retrieve_response =
+          {
+            country_code: String,
+            country_name: String,
+            hierarchical_name: String,
+            is_hotspot: bool,
+            lat: Float,
+            latitude: Float,
+            lng: Float,
+            loc_id: String,
+            loc_name: String,
+            longitude: Float,
+            name: String,
+            :subnational1_code => String,
+            :subnational1_name => String
+          }
+
+        class InfoRetrieveResponse < Phoebe::Internal::Type::BaseModel
+          attr_reader country_code: String?
+
+          def country_code=: (String) -> String
+
+          attr_reader country_name: String?
+
+          def country_name=: (String) -> String
+
+          attr_reader hierarchical_name: String?
+
+          def hierarchical_name=: (String) -> String
+
+          attr_reader is_hotspot: bool?
+
+          def is_hotspot=: (bool) -> bool
+
+          attr_reader lat: Float?
+
+          def lat=: (Float) -> Float
+
+          attr_reader latitude: Float?
+
+          def latitude=: (Float) -> Float
+
+          attr_reader lng: Float?
+
+          def lng=: (Float) -> Float
+
+          attr_reader loc_id: String?
+
+          def loc_id=: (String) -> String
+
+          attr_reader loc_name: String?
+
+          def loc_name=: (String) -> String
+
+          attr_reader longitude: Float?
+
+          def longitude=: (Float) -> Float
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader subnational1_code: String?
+
+          def subnational1_code=: (String) -> String
+
+          attr_reader subnational1_name: String?
+
+          def subnational1_name=: (String) -> String
+
+          def initialize: (
+            ?country_code: String,
+            ?country_name: String,
+            ?hierarchical_name: String,
+            ?is_hotspot: bool,
+            ?lat: Float,
+            ?latitude: Float,
+            ?lng: Float,
+            ?loc_id: String,
+            ?loc_name: String,
+            ?longitude: Float,
+            ?name: String,
+            ?subnational1_code: String,
+            ?subnational1_name: String
+          ) -> void
+        end
+      end
+    end
+  end
+end

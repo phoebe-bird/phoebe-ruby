@@ -1,0 +1,93 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type ebird_retrieve_response_item =
+          {
+            banding_codes: ::Array[String],
+            category: String,
+            com_name: String,
+            com_name_codes: ::Array[String],
+            family_code: String,
+            family_com_name: String,
+            family_sci_name: String,
+            order: String,
+            sci_name: String,
+            sci_name_codes: ::Array[String],
+            species_code: String,
+            taxon_order: Integer
+          }
+
+        class EbirdRetrieveResponseItem < Phoebe::Internal::Type::BaseModel
+          attr_reader banding_codes: ::Array[String]?
+
+          def banding_codes=: (::Array[String]) -> ::Array[String]
+
+          attr_reader category: String?
+
+          def category=: (String) -> String
+
+          attr_reader com_name: String?
+
+          def com_name=: (String) -> String
+
+          attr_reader com_name_codes: ::Array[String]?
+
+          def com_name_codes=: (::Array[String]) -> ::Array[String]
+
+          attr_reader family_code: String?
+
+          def family_code=: (String) -> String
+
+          attr_reader family_com_name: String?
+
+          def family_com_name=: (String) -> String
+
+          attr_reader family_sci_name: String?
+
+          def family_sci_name=: (String) -> String
+
+          attr_reader order: String?
+
+          def order=: (String) -> String
+
+          attr_reader sci_name: String?
+
+          def sci_name=: (String) -> String
+
+          attr_reader sci_name_codes: ::Array[String]?
+
+          def sci_name_codes=: (::Array[String]) -> ::Array[String]
+
+          attr_reader species_code: String?
+
+          def species_code=: (String) -> String
+
+          attr_reader taxon_order: Integer?
+
+          def taxon_order=: (Integer) -> Integer
+
+          def initialize: (
+            ?banding_codes: ::Array[String],
+            ?category: String,
+            ?com_name: String,
+            ?com_name_codes: ::Array[String],
+            ?family_code: String,
+            ?family_com_name: String,
+            ?family_sci_name: String,
+            ?order: String,
+            ?sci_name: String,
+            ?sci_name_codes: ::Array[String],
+            ?species_code: String,
+            ?taxon_order: Integer
+          ) -> void
+        end
+
+        type ebird_retrieve_response =
+          ::Array[Phoebe::Models::Ref::Taxonomy::EbirdRetrieveResponseItem]
+
+        EbirdRetrieveResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

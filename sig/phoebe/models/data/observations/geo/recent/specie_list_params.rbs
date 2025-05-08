@@ -1,0 +1,69 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Geo
+          module Recent
+            type specie_list_params =
+              {
+                lat: Float,
+                lng: Float,
+                back: Integer,
+                dist: Integer,
+                hotspot: bool,
+                include_provisional: bool,
+                max_results: Integer,
+                spp_locale: String
+              }
+              & Phoebe::Internal::Type::request_parameters
+
+            class SpecieListParams < Phoebe::Internal::Type::BaseModel
+              extend Phoebe::Internal::Type::RequestParameters::Converter
+              include Phoebe::Internal::Type::RequestParameters
+
+              attr_accessor lat: Float
+
+              attr_accessor lng: Float
+
+              attr_reader back: Integer?
+
+              def back=: (Integer) -> Integer
+
+              attr_reader dist: Integer?
+
+              def dist=: (Integer) -> Integer
+
+              attr_reader hotspot: bool?
+
+              def hotspot=: (bool) -> bool
+
+              attr_reader include_provisional: bool?
+
+              def include_provisional=: (bool) -> bool
+
+              attr_reader max_results: Integer?
+
+              def max_results=: (Integer) -> Integer
+
+              attr_reader spp_locale: String?
+
+              def spp_locale=: (String) -> String
+
+              def initialize: (
+                lat: Float,
+                lng: Float,
+                ?back: Integer,
+                ?dist: Integer,
+                ?hotspot: bool,
+                ?include_provisional: bool,
+                ?max_results: Integer,
+                ?spp_locale: String,
+                ?request_options: Phoebe::request_opts
+              ) -> void
+            end
+          end
+        end
+      end
+    end
+  end
+end

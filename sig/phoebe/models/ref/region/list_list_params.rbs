@@ -1,0 +1,44 @@
+module Phoebe
+  module Models
+    module Ref
+      module Region
+        type list_list_params =
+          {
+            region_type: String,
+            fmt: Phoebe::Models::Ref::Region::ListListParams::fmt
+          }
+          & Phoebe::Internal::Type::request_parameters
+
+        class ListListParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_accessor region_type: String
+
+          attr_reader fmt: Phoebe::Models::Ref::Region::ListListParams::fmt?
+
+          def fmt=: (
+            Phoebe::Models::Ref::Region::ListListParams::fmt
+          ) -> Phoebe::Models::Ref::Region::ListListParams::fmt
+
+          def initialize: (
+            region_type: String,
+            ?fmt: Phoebe::Models::Ref::Region::ListListParams::fmt,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type fmt = :csv | :json
+
+          module Fmt
+            extend Phoebe::Internal::Type::Enum
+
+            CSV: :csv
+            JSON: :json
+
+            def self?.values: -> ::Array[Phoebe::Models::Ref::Region::ListListParams::fmt]
+          end
+        end
+      end
+    end
+  end
+end

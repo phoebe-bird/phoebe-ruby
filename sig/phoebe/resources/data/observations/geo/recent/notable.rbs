@@ -1,0 +1,27 @@
+module Phoebe
+  module Resources
+    class Data
+      class Observations
+        class Geo
+          class Recent
+            class Notable
+              def list: (
+                lat: Float,
+                lng: Float,
+                ?back: Integer,
+                ?detail: Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail,
+                ?dist: Integer,
+                ?hotspot: bool,
+                ?max_results: Integer,
+                ?spp_locale: String,
+                ?request_options: Phoebe::request_opts
+              ) -> Phoebe::Models::Data::Observations::Geo::Recent::notable_list_response
+
+              def initialize: (client: Phoebe::Client) -> void
+            end
+          end
+        end
+      end
+    end
+  end
+end

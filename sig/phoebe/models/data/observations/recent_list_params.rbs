@@ -1,0 +1,90 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        type recent_list_params =
+          {
+            back: Integer,
+            cat: Phoebe::Models::Data::Observations::RecentListParams::cat,
+            hotspot: bool,
+            include_provisional: bool,
+            max_results: Integer,
+            r: ::Array[String],
+            spp_locale: String
+          }
+          & Phoebe::Internal::Type::request_parameters
+
+        class RecentListParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_reader back: Integer?
+
+          def back=: (Integer) -> Integer
+
+          attr_reader cat: Phoebe::Models::Data::Observations::RecentListParams::cat?
+
+          def cat=: (
+            Phoebe::Models::Data::Observations::RecentListParams::cat
+          ) -> Phoebe::Models::Data::Observations::RecentListParams::cat
+
+          attr_reader hotspot: bool?
+
+          def hotspot=: (bool) -> bool
+
+          attr_reader include_provisional: bool?
+
+          def include_provisional=: (bool) -> bool
+
+          attr_reader max_results: Integer?
+
+          def max_results=: (Integer) -> Integer
+
+          attr_reader r: ::Array[String]?
+
+          def r=: (::Array[String]) -> ::Array[String]
+
+          attr_reader spp_locale: String?
+
+          def spp_locale=: (String) -> String
+
+          def initialize: (
+            ?back: Integer,
+            ?cat: Phoebe::Models::Data::Observations::RecentListParams::cat,
+            ?hotspot: bool,
+            ?include_provisional: bool,
+            ?max_results: Integer,
+            ?r: ::Array[String],
+            ?spp_locale: String,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type cat =
+            :species
+            | :slash
+            | :issf
+            | :spuh
+            | :hybrid
+            | :domestic
+            | :form
+            | :intergrade
+
+          module Cat
+            extend Phoebe::Internal::Type::Enum
+
+            SPECIES: :species
+            SLASH: :slash
+            ISSF: :issf
+            SPUH: :spuh
+            HYBRID: :hybrid
+            DOMESTIC: :domestic
+            FORM: :form
+            INTERGRADE: :intergrade
+
+            def self?.values: -> ::Array[Phoebe::Models::Data::Observations::RecentListParams::cat]
+          end
+        end
+      end
+    end
+  end
+end

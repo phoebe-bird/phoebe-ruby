@@ -1,0 +1,60 @@
+module Phoebe
+  module Models
+    module Ref
+      module Hotspot
+        type geo_retrieve_params =
+          {
+            lat: Float,
+            lng: Float,
+            back: Integer,
+            dist: Integer,
+            fmt: Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt
+          }
+          & Phoebe::Internal::Type::request_parameters
+
+        class GeoRetrieveParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_accessor lat: Float
+
+          attr_accessor lng: Float
+
+          attr_reader back: Integer?
+
+          def back=: (Integer) -> Integer
+
+          attr_reader dist: Integer?
+
+          def dist=: (Integer) -> Integer
+
+          attr_reader fmt: Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt?
+
+          def fmt=: (
+            Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt
+          ) -> Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt
+
+          def initialize: (
+            lat: Float,
+            lng: Float,
+            ?back: Integer,
+            ?dist: Integer,
+            ?fmt: Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type fmt = :csv | :json
+
+          module Fmt
+            extend Phoebe::Internal::Type::Enum
+
+            CSV: :csv
+            JSON: :json
+
+            def self?.values: -> ::Array[Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt]
+          end
+        end
+      end
+    end
+  end
+end

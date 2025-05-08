@@ -1,0 +1,17 @@
+module Phoebe
+  module Resources
+    class Product
+      attr_reader lists: Phoebe::Resources::Product::Lists
+
+      attr_reader top100: Phoebe::Resources::Product::Top100
+
+      attr_reader stats: Phoebe::Resources::Product::Stats
+
+      attr_reader species_list: Phoebe::Resources::Product::SpeciesList
+
+      attr_reader checklist: Phoebe::Resources::Product::Checklist
+
+      def initialize: (client: Phoebe::Client) -> void
+    end
+  end
+end

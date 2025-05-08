@@ -1,0 +1,55 @@
+module Phoebe
+  module Models
+    module Product
+      type top100_retrieve_response_item =
+        {
+          num_complete_checklists: Integer,
+          num_species: Integer,
+          profile_handle: String,
+          row_num: Integer,
+          user_display_name: String,
+          user_id: String
+        }
+
+      class Top100RetrieveResponseItem < Phoebe::Internal::Type::BaseModel
+        attr_reader num_complete_checklists: Integer?
+
+        def num_complete_checklists=: (Integer) -> Integer
+
+        attr_reader num_species: Integer?
+
+        def num_species=: (Integer) -> Integer
+
+        attr_reader profile_handle: String?
+
+        def profile_handle=: (String) -> String
+
+        attr_reader row_num: Integer?
+
+        def row_num=: (Integer) -> Integer
+
+        attr_reader user_display_name: String?
+
+        def user_display_name=: (String) -> String
+
+        attr_reader user_id: String?
+
+        def user_id=: (String) -> String
+
+        def initialize: (
+          ?num_complete_checklists: Integer,
+          ?num_species: Integer,
+          ?profile_handle: String,
+          ?row_num: Integer,
+          ?user_display_name: String,
+          ?user_id: String
+        ) -> void
+      end
+
+      type top100_retrieve_response =
+        ::Array[Phoebe::Models::Product::Top100RetrieveResponseItem]
+
+      Top100RetrieveResponse: Phoebe::Internal::Type::Converter
+    end
+  end
+end

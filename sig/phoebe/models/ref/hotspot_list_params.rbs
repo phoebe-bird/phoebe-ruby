@@ -1,0 +1,41 @@
+module Phoebe
+  module Models
+    module Ref
+      type hotspot_list_params =
+        { back: Integer, fmt: Phoebe::Models::Ref::HotspotListParams::fmt }
+        & Phoebe::Internal::Type::request_parameters
+
+      class HotspotListParams < Phoebe::Internal::Type::BaseModel
+        extend Phoebe::Internal::Type::RequestParameters::Converter
+        include Phoebe::Internal::Type::RequestParameters
+
+        attr_reader back: Integer?
+
+        def back=: (Integer) -> Integer
+
+        attr_reader fmt: Phoebe::Models::Ref::HotspotListParams::fmt?
+
+        def fmt=: (
+          Phoebe::Models::Ref::HotspotListParams::fmt
+        ) -> Phoebe::Models::Ref::HotspotListParams::fmt
+
+        def initialize: (
+          ?back: Integer,
+          ?fmt: Phoebe::Models::Ref::HotspotListParams::fmt,
+          ?request_options: Phoebe::request_opts
+        ) -> void
+
+        type fmt = :csv | :json
+
+        module Fmt
+          extend Phoebe::Internal::Type::Enum
+
+          CSV: :csv
+          JSON: :json
+
+          def self?.values: -> ::Array[Phoebe::Models::Ref::HotspotListParams::fmt]
+        end
+      end
+    end
+  end
+end

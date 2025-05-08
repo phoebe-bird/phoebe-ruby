@@ -1,0 +1,82 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Geo
+          module Recent
+            type notable_list_params =
+              {
+                lat: Float,
+                lng: Float,
+                back: Integer,
+                detail: Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail,
+                dist: Integer,
+                hotspot: bool,
+                max_results: Integer,
+                spp_locale: String
+              }
+              & Phoebe::Internal::Type::request_parameters
+
+            class NotableListParams < Phoebe::Internal::Type::BaseModel
+              extend Phoebe::Internal::Type::RequestParameters::Converter
+              include Phoebe::Internal::Type::RequestParameters
+
+              attr_accessor lat: Float
+
+              attr_accessor lng: Float
+
+              attr_reader back: Integer?
+
+              def back=: (Integer) -> Integer
+
+              attr_reader detail: Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail?
+
+              def detail=: (
+                Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail
+              ) -> Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail
+
+              attr_reader dist: Integer?
+
+              def dist=: (Integer) -> Integer
+
+              attr_reader hotspot: bool?
+
+              def hotspot=: (bool) -> bool
+
+              attr_reader max_results: Integer?
+
+              def max_results=: (Integer) -> Integer
+
+              attr_reader spp_locale: String?
+
+              def spp_locale=: (String) -> String
+
+              def initialize: (
+                lat: Float,
+                lng: Float,
+                ?back: Integer,
+                ?detail: Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail,
+                ?dist: Integer,
+                ?hotspot: bool,
+                ?max_results: Integer,
+                ?spp_locale: String,
+                ?request_options: Phoebe::request_opts
+              ) -> void
+
+              type detail = :simple | :full
+
+              module Detail
+                extend Phoebe::Internal::Type::Enum
+
+                SIMPLE: :simple
+                FULL: :full
+
+                def self?.values: -> ::Array[Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail]
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end

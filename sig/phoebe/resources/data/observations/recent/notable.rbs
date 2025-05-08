@@ -1,0 +1,24 @@
+module Phoebe
+  module Resources
+    class Data
+      class Observations
+        class Recent
+          class Notable
+            def list: (
+              String region_code,
+              ?back: Integer,
+              ?detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail,
+              ?hotspot: bool,
+              ?max_results: Integer,
+              ?r: ::Array[String],
+              ?spp_locale: String,
+              ?request_options: Phoebe::request_opts
+            ) -> Phoebe::Models::Data::Observations::Recent::notable_list_response
+
+            def initialize: (client: Phoebe::Client) -> void
+          end
+        end
+      end
+    end
+  end
+end

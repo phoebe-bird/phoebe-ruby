@@ -1,0 +1,56 @@
+module Phoebe
+  module Models
+    module Ref
+      module Region
+        type info_retrieve_params =
+          {
+            delim: String,
+            region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format
+          }
+          & Phoebe::Internal::Type::request_parameters
+
+        class InfoRetrieveParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_reader delim: String?
+
+          def delim=: (String) -> String
+
+          attr_reader region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format?
+
+          def region_name_format=: (
+            Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format
+          ) -> Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format
+
+          def initialize: (
+            ?delim: String,
+            ?region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type region_name_format =
+            :detailed
+            | :detailednoqual
+            | :full
+            | :namequal
+            | :nameonly
+            | :revdetailed
+
+          module RegionNameFormat
+            extend Phoebe::Internal::Type::Enum
+
+            DETAILED: :detailed
+            DETAILEDNOQUAL: :detailednoqual
+            FULL: :full
+            NAMEQUAL: :namequal
+            NAMEONLY: :nameonly
+            REVDETAILED: :revdetailed
+
+            def self?.values: -> ::Array[Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format]
+          end
+        end
+      end
+    end
+  end
+end

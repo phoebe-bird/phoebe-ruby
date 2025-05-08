@@ -1,0 +1,14 @@
+module Phoebe
+  module Resources
+    class Product
+      class SpeciesList
+        def list: (
+          String region_code,
+          ?request_options: Phoebe::request_opts
+        ) -> Phoebe::Models::Product::species_list_list_response
+
+        def initialize: (client: Phoebe::Client) -> void
+      end
+    end
+  end
+end

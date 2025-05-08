@@ -1,0 +1,13 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Recent
+          type notable_list_response = ::Array[Phoebe::Data::Observation]
+
+          NotableListResponse: Phoebe::Internal::Type::Converter
+        end
+      end
+    end
+  end
+end

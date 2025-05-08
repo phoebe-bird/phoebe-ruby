@@ -1,0 +1,58 @@
+module Phoebe
+  module Models
+    module Product
+      module Lists
+        type historical_retrieve_params =
+          {
+            region_code: String,
+            y_: Integer,
+            m: Integer,
+            max_results: Integer,
+            sort_key: Phoebe::Models::Product::Lists::HistoricalRetrieveParams::sort_key
+          }
+          & Phoebe::Internal::Type::request_parameters
+
+        class HistoricalRetrieveParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_accessor region_code: String
+
+          attr_accessor y_: Integer
+
+          attr_accessor m: Integer
+
+          attr_reader max_results: Integer?
+
+          def max_results=: (Integer) -> Integer
+
+          attr_reader sort_key: Phoebe::Models::Product::Lists::HistoricalRetrieveParams::sort_key?
+
+          def sort_key=: (
+            Phoebe::Models::Product::Lists::HistoricalRetrieveParams::sort_key
+          ) -> Phoebe::Models::Product::Lists::HistoricalRetrieveParams::sort_key
+
+          def initialize: (
+            region_code: String,
+            y_: Integer,
+            m: Integer,
+            ?max_results: Integer,
+            ?sort_key: Phoebe::Models::Product::Lists::HistoricalRetrieveParams::sort_key,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type sort_key = :obs_dt | :creation_dt
+
+          module SortKey
+            extend Phoebe::Internal::Type::Enum
+
+            OBS_DT: :obs_dt
+            CREATION_DT: :creation_dt
+
+            def self?.values: -> ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveParams::sort_key]
+          end
+        end
+      end
+    end
+  end
+end

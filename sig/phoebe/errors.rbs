@@ -1,0 +1,101 @@
+module Phoebe
+  module Errors
+    class Error < StandardError
+      attr_accessor cause: StandardError?
+    end
+
+    class ConversionError < Phoebe::Errors::Error
+    end
+
+    class APIError < Phoebe::Errors::Error
+      attr_accessor url: URI::Generic
+
+      attr_accessor status: Integer?
+
+      attr_accessor body: top?
+
+      def initialize: (
+        url: URI::Generic,
+        ?status: Integer?,
+        ?body: Object?,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIConnectionError < Phoebe::Errors::APIError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APITimeoutError < Phoebe::Errors::APIConnectionError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIStatusError < Phoebe::Errors::APIError
+      def self.for: (
+        url: URI::Generic,
+        status: Integer,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> instance
+
+      def initialize: (
+        url: URI::Generic,
+        status: Integer,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class BadRequestError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 400
+    end
+
+    class AuthenticationError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 401
+    end
+
+    class PermissionDeniedError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 403
+    end
+
+    class NotFoundError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 404
+    end
+
+    class ConflictError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 409
+    end
+
+    class UnprocessableEntityError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 422
+    end
+
+    class RateLimitError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: 429
+    end
+
+    class InternalServerError < Phoebe::Errors::APIStatusError
+      HTTP_STATUS: Range[Integer]
+    end
+  end
+end

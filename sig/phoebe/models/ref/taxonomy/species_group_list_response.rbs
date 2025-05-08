@@ -1,0 +1,41 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type species_group_list_response_item =
+          {
+            group_name: String,
+            group_order: Integer,
+            taxon_order_bounds: ::Array[::Array[Float]]
+          }
+
+        class SpeciesGroupListResponseItem < Phoebe::Internal::Type::BaseModel
+          attr_reader group_name: String?
+
+          def group_name=: (String) -> String
+
+          attr_reader group_order: Integer?
+
+          def group_order=: (Integer) -> Integer
+
+          attr_reader taxon_order_bounds: ::Array[::Array[Float]]?
+
+          def taxon_order_bounds=: (
+            ::Array[::Array[Float]]
+          ) -> ::Array[::Array[Float]]
+
+          def initialize: (
+            ?group_name: String,
+            ?group_order: Integer,
+            ?taxon_order_bounds: ::Array[::Array[Float]]
+          ) -> void
+        end
+
+        type species_group_list_response =
+          ::Array[Phoebe::Models::Ref::Taxonomy::SpeciesGroupListResponseItem]
+
+        SpeciesGroupListResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

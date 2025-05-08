@@ -1,0 +1,11 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type form_list_response = ::Array[String]
+
+        FormListResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

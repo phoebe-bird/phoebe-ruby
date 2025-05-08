@@ -1,0 +1,36 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type species_group_list_params =
+          { group_name_locale: String }
+          & Phoebe::Internal::Type::request_parameters
+
+        class SpeciesGroupListParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_reader group_name_locale: String?
+
+          def group_name_locale=: (String) -> String
+
+          def initialize: (
+            ?group_name_locale: String,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type species_grouping = :merlin | :ebird
+
+          module SpeciesGrouping
+            extend Phoebe::Internal::Type::Enum
+
+            MERLIN: :merlin
+            EBIRD: :ebird
+
+            def self?.values: -> ::Array[Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::species_grouping]
+          end
+        end
+      end
+    end
+  end
+end
