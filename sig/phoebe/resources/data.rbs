@@ -1,0 +1,9 @@
+module Phoebe
+  module Resources
+    class Data
+      attr_reader observations: Phoebe::Resources::Data::Observations
+
+      def initialize: (client: Phoebe::Client) -> void
+    end
+  end
+end

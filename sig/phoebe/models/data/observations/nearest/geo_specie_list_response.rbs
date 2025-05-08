@@ -1,0 +1,13 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Nearest
+          type geo_specie_list_response = ::Array[Phoebe::Data::Observation]
+
+          GeoSpecieListResponse: Phoebe::Internal::Type::Converter
+        end
+      end
+    end
+  end
+end

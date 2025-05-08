@@ -1,0 +1,16 @@
+module Phoebe
+  module Resources
+    class Ref
+      class Hotspot
+        class Info
+          def retrieve: (
+            String loc_id,
+            ?request_options: Phoebe::request_opts
+          ) -> Phoebe::Models::Ref::Hotspot::InfoRetrieveResponse
+
+          def initialize: (client: Phoebe::Client) -> void
+        end
+      end
+    end
+  end
+end

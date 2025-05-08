@@ -1,0 +1,26 @@
+module Phoebe
+  module Models
+    module Ref
+      module Region
+        type adjacent_list_response_item = { code: String, name: String }
+
+        class AdjacentListResponseItem < Phoebe::Internal::Type::BaseModel
+          attr_reader code: String?
+
+          def code=: (String) -> String
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          def initialize: (?code: String, ?name: String) -> void
+        end
+
+        type adjacent_list_response =
+          ::Array[Phoebe::Models::Ref::Region::AdjacentListResponseItem]
+
+        AdjacentListResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

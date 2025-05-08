@@ -1,0 +1,3 @@
+module Phoebe
+  VERSION: String
+end

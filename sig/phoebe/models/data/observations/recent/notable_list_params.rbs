@@ -1,0 +1,72 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Recent
+          type notable_list_params =
+            {
+              back: Integer,
+              detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail,
+              hotspot: bool,
+              max_results: Integer,
+              r: ::Array[String],
+              spp_locale: String
+            }
+            & Phoebe::Internal::Type::request_parameters
+
+          class NotableListParams < Phoebe::Internal::Type::BaseModel
+            extend Phoebe::Internal::Type::RequestParameters::Converter
+            include Phoebe::Internal::Type::RequestParameters
+
+            attr_reader back: Integer?
+
+            def back=: (Integer) -> Integer
+
+            attr_reader detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail?
+
+            def detail=: (
+              Phoebe::Models::Data::Observations::Recent::NotableListParams::detail
+            ) -> Phoebe::Models::Data::Observations::Recent::NotableListParams::detail
+
+            attr_reader hotspot: bool?
+
+            def hotspot=: (bool) -> bool
+
+            attr_reader max_results: Integer?
+
+            def max_results=: (Integer) -> Integer
+
+            attr_reader r: ::Array[String]?
+
+            def r=: (::Array[String]) -> ::Array[String]
+
+            attr_reader spp_locale: String?
+
+            def spp_locale=: (String) -> String
+
+            def initialize: (
+              ?back: Integer,
+              ?detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail,
+              ?hotspot: bool,
+              ?max_results: Integer,
+              ?r: ::Array[String],
+              ?spp_locale: String,
+              ?request_options: Phoebe::request_opts
+            ) -> void
+
+            type detail = :simple | :full
+
+            module Detail
+              extend Phoebe::Internal::Type::Enum
+
+              SIMPLE: :simple
+              FULL: :full
+
+              def self?.values: -> ::Array[Phoebe::Models::Data::Observations::Recent::NotableListParams::detail]
+            end
+          end
+        end
+      end
+    end
+  end
+end

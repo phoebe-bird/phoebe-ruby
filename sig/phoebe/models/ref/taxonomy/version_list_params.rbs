@@ -1,0 +1,17 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type version_list_params =
+          {  } & Phoebe::Internal::Type::request_parameters
+
+        class VersionListParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          def initialize: (?request_options: Phoebe::request_opts) -> void
+        end
+      end
+    end
+  end
+end

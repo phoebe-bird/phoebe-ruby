@@ -1,0 +1,31 @@
+module Phoebe
+  module Resources
+    class Data
+      class Observations
+        class Geo
+          class Recent
+            attr_reader species: Phoebe::Resources::Data::Observations::Geo::Recent::Species
+
+            attr_reader notable: Phoebe::Resources::Data::Observations::Geo::Recent::Notable
+
+            def list: (
+              lat: Float,
+              lng: Float,
+              ?back: Integer,
+              ?cat: Phoebe::Models::Data::Observations::Geo::RecentListParams::cat,
+              ?dist: Integer,
+              ?hotspot: bool,
+              ?include_provisional: bool,
+              ?max_results: Integer,
+              ?sort: Phoebe::Models::Data::Observations::Geo::RecentListParams::sort,
+              ?spp_locale: String,
+              ?request_options: Phoebe::request_opts
+            ) -> Phoebe::Models::Data::Observations::Geo::recent_list_response
+
+            def initialize: (client: Phoebe::Client) -> void
+          end
+        end
+      end
+    end
+  end
+end

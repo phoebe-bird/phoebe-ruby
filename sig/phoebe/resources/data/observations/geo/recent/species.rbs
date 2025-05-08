@@ -1,0 +1,28 @@
+module Phoebe
+  module Resources
+    class Data
+      class Observations
+        class Geo
+          class Recent
+            class Species
+              def list: (
+                String species_code,
+                lat: Float,
+                lng: Float,
+                ?back: Integer,
+                ?dist: Integer,
+                ?hotspot: bool,
+                ?include_provisional: bool,
+                ?max_results: Integer,
+                ?spp_locale: String,
+                ?request_options: Phoebe::request_opts
+              ) -> Phoebe::Models::Data::Observations::Geo::Recent::specie_list_response
+
+              def initialize: (client: Phoebe::Client) -> void
+            end
+          end
+        end
+      end
+    end
+  end
+end

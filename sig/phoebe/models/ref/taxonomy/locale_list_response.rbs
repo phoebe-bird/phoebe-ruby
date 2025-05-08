@@ -1,0 +1,35 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type locale_list_response_item =
+          { code: String, last_updated: String, name: String }
+
+        class LocaleListResponseItem < Phoebe::Internal::Type::BaseModel
+          attr_reader code: String?
+
+          def code=: (String) -> String
+
+          attr_reader last_updated: String?
+
+          def last_updated=: (String) -> String
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          def initialize: (
+            ?code: String,
+            ?last_updated: String,
+            ?name: String
+          ) -> void
+        end
+
+        type locale_list_response =
+          ::Array[Phoebe::Models::Ref::Taxonomy::LocaleListResponseItem]
+
+        LocaleListResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

@@ -1,0 +1,32 @@
+module Phoebe
+  module Models
+    module Product
+      type stat_retrieve_response =
+        {
+          num_checklists: Integer,
+          num_contributors: Integer,
+          num_species: Integer
+        }
+
+      class StatRetrieveResponse < Phoebe::Internal::Type::BaseModel
+        attr_reader num_checklists: Integer?
+
+        def num_checklists=: (Integer) -> Integer
+
+        attr_reader num_contributors: Integer?
+
+        def num_contributors=: (Integer) -> Integer
+
+        attr_reader num_species: Integer?
+
+        def num_species=: (Integer) -> Integer
+
+        def initialize: (
+          ?num_checklists: Integer,
+          ?num_contributors: Integer,
+          ?num_species: Integer
+        ) -> void
+      end
+    end
+  end
+end

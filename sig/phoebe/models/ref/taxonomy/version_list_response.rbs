@@ -1,0 +1,26 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type version_list_response_item = { authority_ver: Float, latest: bool }
+
+        class VersionListResponseItem < Phoebe::Internal::Type::BaseModel
+          attr_reader authority_ver: Float?
+
+          def authority_ver=: (Float) -> Float
+
+          attr_reader latest: bool?
+
+          def latest=: (bool) -> bool
+
+          def initialize: (?authority_ver: Float, ?latest: bool) -> void
+        end
+
+        type version_list_response =
+          ::Array[Phoebe::Models::Ref::Taxonomy::VersionListResponseItem]
+
+        VersionListResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

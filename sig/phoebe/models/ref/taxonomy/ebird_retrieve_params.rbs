@@ -1,0 +1,64 @@
+module Phoebe
+  module Models
+    module Ref
+      module Taxonomy
+        type ebird_retrieve_params =
+          {
+            cat: String,
+            fmt: Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt,
+            locale: String,
+            species: String,
+            version: String
+          }
+          & Phoebe::Internal::Type::request_parameters
+
+        class EbirdRetrieveParams < Phoebe::Internal::Type::BaseModel
+          extend Phoebe::Internal::Type::RequestParameters::Converter
+          include Phoebe::Internal::Type::RequestParameters
+
+          attr_reader cat: String?
+
+          def cat=: (String) -> String
+
+          attr_reader fmt: Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt?
+
+          def fmt=: (
+            Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt
+          ) -> Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt
+
+          attr_reader locale: String?
+
+          def locale=: (String) -> String
+
+          attr_reader species: String?
+
+          def species=: (String) -> String
+
+          attr_reader version: String?
+
+          def version=: (String) -> String
+
+          def initialize: (
+            ?cat: String,
+            ?fmt: Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt,
+            ?locale: String,
+            ?species: String,
+            ?version: String,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          type fmt = :csv | :json
+
+          module Fmt
+            extend Phoebe::Internal::Type::Enum
+
+            CSV: :csv
+            JSON: :json
+
+            def self?.values: -> ::Array[Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt]
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,5 @@
+module Phoebe
+  module Internal
+    OMIT: Object
+  end
+end

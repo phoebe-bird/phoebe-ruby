@@ -1,0 +1,14 @@
+module Phoebe
+  module Resources
+    class Product
+      class Checklist
+        def view: (
+          String sub_id,
+          ?request_options: Phoebe::request_opts
+        ) -> Phoebe::Models::Product::ChecklistViewResponse
+
+        def initialize: (client: Phoebe::Client) -> void
+      end
+    end
+  end
+end

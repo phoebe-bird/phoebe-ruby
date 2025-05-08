@@ -1,0 +1,15 @@
+module Phoebe
+  module Resources
+    class Data
+      class Observations
+        attr_reader recent: Phoebe::Resources::Data::Observations::Recent
+
+        attr_reader geo: Phoebe::Resources::Data::Observations::Geo
+
+        attr_reader nearest: Phoebe::Resources::Data::Observations::Nearest
+
+        def initialize: (client: Phoebe::Client) -> void
+      end
+    end
+  end
+end

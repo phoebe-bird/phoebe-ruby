@@ -1,0 +1,9 @@
+module Phoebe
+  module Models
+    module Product
+      type species_list_list_response = ::Array[String]
+
+      SpeciesListListResponse: Phoebe::Internal::Type::Converter
+    end
+  end
+end

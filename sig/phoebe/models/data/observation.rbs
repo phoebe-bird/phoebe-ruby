@@ -1,0 +1,110 @@
+module Phoebe
+  module Models
+    module Data
+      type observation =
+        {
+          id: Integer,
+          com_name: String,
+          firstname: String,
+          how_many: Integer,
+          lastname: String,
+          lat: Float,
+          lng: Float,
+          location_private: bool,
+          loc_id: String,
+          loc_name: String,
+          obs_dt: String,
+          obs_reviewed: bool,
+          obs_valid: bool,
+          sci_name: String,
+          species_code: String,
+          sub_id: String
+        }
+
+      class Observation < Phoebe::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader com_name: String?
+
+        def com_name=: (String) -> String
+
+        attr_reader firstname: String?
+
+        def firstname=: (String) -> String
+
+        attr_reader how_many: Integer?
+
+        def how_many=: (Integer) -> Integer
+
+        attr_reader lastname: String?
+
+        def lastname=: (String) -> String
+
+        attr_reader lat: Float?
+
+        def lat=: (Float) -> Float
+
+        attr_reader lng: Float?
+
+        def lng=: (Float) -> Float
+
+        attr_reader location_private: bool?
+
+        def location_private=: (bool) -> bool
+
+        attr_reader loc_id: String?
+
+        def loc_id=: (String) -> String
+
+        attr_reader loc_name: String?
+
+        def loc_name=: (String) -> String
+
+        attr_reader obs_dt: String?
+
+        def obs_dt=: (String) -> String
+
+        attr_reader obs_reviewed: bool?
+
+        def obs_reviewed=: (bool) -> bool
+
+        attr_reader obs_valid: bool?
+
+        def obs_valid=: (bool) -> bool
+
+        attr_reader sci_name: String?
+
+        def sci_name=: (String) -> String
+
+        attr_reader species_code: String?
+
+        def species_code=: (String) -> String
+
+        attr_reader sub_id: String?
+
+        def sub_id=: (String) -> String
+
+        def initialize: (
+          ?id: Integer,
+          ?com_name: String,
+          ?firstname: String,
+          ?how_many: Integer,
+          ?lastname: String,
+          ?lat: Float,
+          ?lng: Float,
+          ?location_private: bool,
+          ?loc_id: String,
+          ?loc_name: String,
+          ?obs_dt: String,
+          ?obs_reviewed: bool,
+          ?obs_valid: bool,
+          ?sci_name: String,
+          ?species_code: String,
+          ?sub_id: String
+        ) -> void
+      end
+    end
+  end
+end

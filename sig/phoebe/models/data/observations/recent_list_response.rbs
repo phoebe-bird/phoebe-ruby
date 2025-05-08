@@ -1,0 +1,11 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        type recent_list_response = ::Array[Phoebe::Data::Observation]
+
+        RecentListResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

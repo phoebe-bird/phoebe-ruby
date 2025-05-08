@@ -1,0 +1,17 @@
+module Phoebe
+  module Resources
+    class Ref
+      class Taxonomy
+        class SpeciesGroups
+          def list: (
+            Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::species_grouping species_grouping,
+            ?group_name_locale: String,
+            ?request_options: Phoebe::request_opts
+          ) -> Phoebe::Models::Ref::Taxonomy::species_group_list_response
+
+          def initialize: (client: Phoebe::Client) -> void
+        end
+      end
+    end
+  end
+end

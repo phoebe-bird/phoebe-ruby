@@ -1,0 +1,7 @@
+module Phoebe
+  module Data = Phoebe::Models::Data
+
+  module Product = Phoebe::Models::Product
+
+  module Ref = Phoebe::Models::Ref
+end

@@ -1,0 +1,318 @@
+module Phoebe
+  module Models
+    module Product
+      module Lists
+        type historical_retrieve_response_item =
+          {
+            all_obs_reported: bool,
+            checklist_id: String,
+            creation_dt: String,
+            duration_hrs: Float,
+            iso_obs_date: String,
+            last_edited_dt: String,
+            loc: Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Loc,
+            loc_id: String,
+            num_observers: Integer,
+            num_species: Integer,
+            obs: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob],
+            obs_dt: String,
+            obs_time: String,
+            obs_time_valid: bool,
+            proj_id: String,
+            protocol_id: String,
+            sub_id: String,
+            submission_method_code: String,
+            :subnational1_code => String,
+            user_display_name: String
+          }
+
+        class HistoricalRetrieveResponseItem < Phoebe::Internal::Type::BaseModel
+          attr_reader all_obs_reported: bool?
+
+          def all_obs_reported=: (bool) -> bool
+
+          attr_reader checklist_id: String?
+
+          def checklist_id=: (String) -> String
+
+          attr_reader creation_dt: String?
+
+          def creation_dt=: (String) -> String
+
+          attr_reader duration_hrs: Float?
+
+          def duration_hrs=: (Float) -> Float
+
+          attr_reader iso_obs_date: String?
+
+          def iso_obs_date=: (String) -> String
+
+          attr_reader last_edited_dt: String?
+
+          def last_edited_dt=: (String) -> String
+
+          attr_reader loc: Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Loc?
+
+          def loc=: (
+            Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Loc
+          ) -> Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Loc
+
+          attr_reader loc_id: String?
+
+          def loc_id=: (String) -> String
+
+          attr_reader num_observers: Integer?
+
+          def num_observers=: (Integer) -> Integer
+
+          attr_reader num_species: Integer?
+
+          def num_species=: (Integer) -> Integer
+
+          attr_reader obs: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob]?
+
+          def obs=: (
+            ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob]
+          ) -> ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob]
+
+          attr_reader obs_dt: String?
+
+          def obs_dt=: (String) -> String
+
+          attr_reader obs_time: String?
+
+          def obs_time=: (String) -> String
+
+          attr_reader obs_time_valid: bool?
+
+          def obs_time_valid=: (bool) -> bool
+
+          attr_reader proj_id: String?
+
+          def proj_id=: (String) -> String
+
+          attr_reader protocol_id: String?
+
+          def protocol_id=: (String) -> String
+
+          attr_reader sub_id: String?
+
+          def sub_id=: (String) -> String
+
+          attr_reader submission_method_code: String?
+
+          def submission_method_code=: (String) -> String
+
+          attr_reader subnational1_code: String?
+
+          def subnational1_code=: (String) -> String
+
+          attr_reader user_display_name: String?
+
+          def user_display_name=: (String) -> String
+
+          def initialize: (
+            ?all_obs_reported: bool,
+            ?checklist_id: String,
+            ?creation_dt: String,
+            ?duration_hrs: Float,
+            ?iso_obs_date: String,
+            ?last_edited_dt: String,
+            ?loc: Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Loc,
+            ?loc_id: String,
+            ?num_observers: Integer,
+            ?num_species: Integer,
+            ?obs: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob],
+            ?obs_dt: String,
+            ?obs_time: String,
+            ?obs_time_valid: bool,
+            ?proj_id: String,
+            ?protocol_id: String,
+            ?sub_id: String,
+            ?submission_method_code: String,
+            ?subnational1_code: String,
+            ?user_display_name: String
+          ) -> void
+
+          type loc =
+            {
+              country_code: String,
+              country_name: String,
+              hierarchical_name: String,
+              is_hotspot: bool,
+              lat: Float,
+              latitude: Float,
+              lng: Float,
+              loc_id: String,
+              loc_name: String,
+              longitude: Float,
+              name: String,
+              :subnational1_code => String,
+              :subnational1_name => String
+            }
+
+          class Loc < Phoebe::Internal::Type::BaseModel
+            attr_reader country_code: String?
+
+            def country_code=: (String) -> String
+
+            attr_reader country_name: String?
+
+            def country_name=: (String) -> String
+
+            attr_reader hierarchical_name: String?
+
+            def hierarchical_name=: (String) -> String
+
+            attr_reader is_hotspot: bool?
+
+            def is_hotspot=: (bool) -> bool
+
+            attr_reader lat: Float?
+
+            def lat=: (Float) -> Float
+
+            attr_reader latitude: Float?
+
+            def latitude=: (Float) -> Float
+
+            attr_reader lng: Float?
+
+            def lng=: (Float) -> Float
+
+            attr_reader loc_id: String?
+
+            def loc_id=: (String) -> String
+
+            attr_reader loc_name: String?
+
+            def loc_name=: (String) -> String
+
+            attr_reader longitude: Float?
+
+            def longitude=: (Float) -> Float
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader subnational1_code: String?
+
+            def subnational1_code=: (String) -> String
+
+            attr_reader subnational1_name: String?
+
+            def subnational1_name=: (String) -> String
+
+            def initialize: (
+              ?country_code: String,
+              ?country_name: String,
+              ?hierarchical_name: String,
+              ?is_hotspot: bool,
+              ?lat: Float,
+              ?latitude: Float,
+              ?lng: Float,
+              ?loc_id: String,
+              ?loc_name: String,
+              ?longitude: Float,
+              ?name: String,
+              ?subnational1_code: String,
+              ?subnational1_name: String
+            ) -> void
+          end
+
+          type ob =
+            {
+              obs_aux: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob::ObsAux],
+              obs_dt: String,
+              obs_id: String,
+              species_code: String
+            }
+
+          class Ob < Phoebe::Internal::Type::BaseModel
+            attr_reader obs_aux: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob::ObsAux]?
+
+            def obs_aux=: (
+              ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob::ObsAux]
+            ) -> ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob::ObsAux]
+
+            attr_reader obs_dt: String?
+
+            def obs_dt=: (String) -> String
+
+            attr_reader obs_id: String?
+
+            def obs_id=: (String) -> String
+
+            attr_reader species_code: String?
+
+            def species_code=: (String) -> String
+
+            def initialize: (
+              ?obs_aux: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob::ObsAux],
+              ?obs_dt: String,
+              ?obs_id: String,
+              ?species_code: String
+            ) -> void
+
+            type obs_aux =
+              {
+                aux_code: String,
+                entry_method_code: String,
+                field_name: String,
+                obs_id: String,
+                species_code: String,
+                sub_id: String,
+                value: String
+              }
+
+            class ObsAux < Phoebe::Internal::Type::BaseModel
+              attr_reader aux_code: String?
+
+              def aux_code=: (String) -> String
+
+              attr_reader entry_method_code: String?
+
+              def entry_method_code=: (String) -> String
+
+              attr_reader field_name: String?
+
+              def field_name=: (String) -> String
+
+              attr_reader obs_id: String?
+
+              def obs_id=: (String) -> String
+
+              attr_reader species_code: String?
+
+              def species_code=: (String) -> String
+
+              attr_reader sub_id: String?
+
+              def sub_id=: (String) -> String
+
+              attr_reader value: String?
+
+              def value=: (String) -> String
+
+              def initialize: (
+                ?aux_code: String,
+                ?entry_method_code: String,
+                ?field_name: String,
+                ?obs_id: String,
+                ?species_code: String,
+                ?sub_id: String,
+                ?value: String
+              ) -> void
+            end
+          end
+        end
+
+        type historical_retrieve_response =
+          ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem]
+
+        HistoricalRetrieveResponse: Phoebe::Internal::Type::Converter
+      end
+    end
+  end
+end

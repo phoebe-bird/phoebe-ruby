@@ -1,0 +1,13 @@
+module Phoebe
+  module Models
+    module Data
+      module Observations
+        module Recent
+          type historic_list_response = ::Array[Phoebe::Data::Observation]
+
+          HistoricListResponse: Phoebe::Internal::Type::Converter
+        end
+      end
+    end
+  end
+end

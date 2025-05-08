@@ -1,0 +1,25 @@
+module Phoebe
+  module Resources
+    class Data
+      class Observations
+        class Recent
+          class Species
+            def retrieve: (
+              String species_code,
+              region_code: String,
+              ?back: Integer,
+              ?hotspot: bool,
+              ?include_provisional: bool,
+              ?max_results: Integer,
+              ?r: ::Array[String],
+              ?spp_locale: String,
+              ?request_options: Phoebe::request_opts
+            ) -> Phoebe::Models::Data::Observations::Recent::specie_retrieve_response
+
+            def initialize: (client: Phoebe::Client) -> void
+          end
+        end
+      end
+    end
+  end
+end

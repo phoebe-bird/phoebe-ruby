@@ -1,0 +1,13 @@
+module Phoebe
+  module Resources
+    class Ref
+      attr_reader region: Phoebe::Resources::Ref::Region
+
+      attr_reader hotspot: Phoebe::Resources::Ref::Hotspot
+
+      attr_reader taxonomy: Phoebe::Resources::Ref::Taxonomy
+
+      def initialize: (client: Phoebe::Client) -> void
+    end
+  end
+end

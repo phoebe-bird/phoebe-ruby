@@ -1,0 +1,58 @@
+module Phoebe
+  module Models
+    module Ref
+      module Region
+        type info_retrieve_response =
+          {
+            bounds: Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds,
+            result: String
+          }
+
+        class InfoRetrieveResponse < Phoebe::Internal::Type::BaseModel
+          attr_reader bounds: Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds?
+
+          def bounds=: (
+            Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds
+          ) -> Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds
+
+          attr_reader result: String?
+
+          def result=: (String) -> String
+
+          def initialize: (
+            ?bounds: Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds,
+            ?result: String
+          ) -> void
+
+          type bounds =
+            { max_x: Float, max_y: Float, min_x: Float, min_y: Float }
+
+          class Bounds < Phoebe::Internal::Type::BaseModel
+            attr_reader max_x: Float?
+
+            def max_x=: (Float) -> Float
+
+            attr_reader max_y: Float?
+
+            def max_y=: (Float) -> Float
+
+            attr_reader min_x: Float?
+
+            def min_x=: (Float) -> Float
+
+            attr_reader min_y: Float?
+
+            def min_y=: (Float) -> Float
+
+            def initialize: (
+              ?max_x: Float,
+              ?max_y: Float,
+              ?min_x: Float,
+              ?min_y: Float
+            ) -> void
+          end
+        end
+      end
+    end
+  end
+end
