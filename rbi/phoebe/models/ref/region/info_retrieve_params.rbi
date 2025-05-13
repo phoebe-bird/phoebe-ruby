@@ -9,7 +9,12 @@ module Phoebe
           include Phoebe::Internal::Type::RequestParameters
 
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Ref::Region::InfoRetrieveParams,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           # The characters used to separate elements in the name.
           sig { returns(T.nilable(String)) }

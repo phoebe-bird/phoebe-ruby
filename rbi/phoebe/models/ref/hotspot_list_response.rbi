@@ -4,7 +4,13 @@ module Phoebe
   module Models
     module Ref
       class HotspotListResponseItem < Phoebe::Internal::Type::BaseModel
-        OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+        OrHash =
+          T.type_alias do
+            T.any(
+              Phoebe::Models::Ref::HotspotListResponseItem,
+              Phoebe::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(String)) }
         attr_reader :country_code

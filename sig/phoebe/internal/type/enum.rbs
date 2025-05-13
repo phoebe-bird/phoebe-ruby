@@ -3,6 +3,7 @@ module Phoebe
     module Type
       module Enum
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         def self.values: -> ::Array[(nil | bool | Integer | Float | Symbol)]
 

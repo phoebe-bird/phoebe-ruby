@@ -2,6 +2,8 @@ module Phoebe
   module Internal
     module Type
       module Converter
+        extend Phoebe::Internal::Util::SorbetRuntimeSupport
+
         type input = Phoebe::Internal::Type::Converter | Class
 
         type coerce_state =

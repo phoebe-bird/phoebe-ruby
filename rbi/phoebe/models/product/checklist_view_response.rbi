@@ -4,7 +4,13 @@ module Phoebe
   module Models
     module Product
       class ChecklistViewResponse < Phoebe::Internal::Type::BaseModel
-        OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+        OrHash =
+          T.type_alias do
+            T.any(
+              Phoebe::Models::Product::ChecklistViewResponse,
+              Phoebe::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :all_obs_reported
@@ -229,7 +235,12 @@ module Phoebe
 
         class Loc < Phoebe::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Models::Product::ChecklistViewResponse::Loc,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           sig { returns(T.nilable(String)) }
           attr_reader :country_code
@@ -368,7 +379,12 @@ module Phoebe
 
         class Ob < Phoebe::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Models::Product::ChecklistViewResponse::Ob,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           sig do
             returns(
@@ -446,7 +462,12 @@ module Phoebe
 
           class ObsAux < Phoebe::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Phoebe::Models::Product::ChecklistViewResponse::Ob::ObsAux,
+                  Phoebe::Internal::AnyHash
+                )
+              end
 
             sig { returns(T.nilable(String)) }
             attr_reader :aux_code

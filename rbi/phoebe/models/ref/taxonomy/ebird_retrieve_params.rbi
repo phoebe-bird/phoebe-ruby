@@ -9,7 +9,12 @@ module Phoebe
           include Phoebe::Internal::Type::RequestParameters
 
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Ref::Taxonomy::EbirdRetrieveParams,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           # Only fetch records from these taxonomic categories.
           sig { returns(T.nilable(String)) }

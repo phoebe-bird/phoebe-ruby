@@ -4,7 +4,13 @@ module Phoebe
   module Models
     module Product
       class Top100RetrieveResponseItem < Phoebe::Internal::Type::BaseModel
-        OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+        OrHash =
+          T.type_alias do
+            T.any(
+              Phoebe::Models::Product::Top100RetrieveResponseItem,
+              Phoebe::Internal::AnyHash
+            )
+          end
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :num_complete_checklists

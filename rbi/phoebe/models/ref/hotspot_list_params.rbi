@@ -7,7 +7,10 @@ module Phoebe
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
 
-        OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+        OrHash =
+          T.type_alias do
+            T.any(Phoebe::Ref::HotspotListParams, Phoebe::Internal::AnyHash)
+          end
 
         # The number of days back to fetch hotspots.
         sig { returns(T.nilable(Integer)) }

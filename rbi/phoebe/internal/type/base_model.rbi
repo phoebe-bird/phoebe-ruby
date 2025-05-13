@@ -5,10 +5,11 @@ module Phoebe
     module Type
       class BaseModel
         extend Phoebe::Internal::Type::Converter
+        extend Phoebe::Internal::Util::SorbetRuntimeSupport
 
         abstract!
 
-        KnownFieldShape =
+        KnownField =
           T.type_alias do
             {
               mode: T.nilable(Symbol),
@@ -17,19 +18,27 @@ module Phoebe
             }
           end
 
-        OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+        OrHash =
+          T.type_alias do
+            T.any(Phoebe::Internal::Type::BaseModel, Phoebe::Internal::AnyHash)
+          end
 
         class << self
           # @api private
           #
           # Assumes superclass fields are totally defined before fields are accessed /
           # defined on subclasses.
+          sig { params(child: T.self_type).void }
+          def inherited(child)
+          end
+
+          # @api private
           sig do
             returns(
               T::Hash[
                 Symbol,
                 T.all(
-                  Phoebe::Internal::Type::BaseModel::KnownFieldShape,
+                  Phoebe::Internal::Type::BaseModel::KnownField,
                   {
                     type_fn:
                       T.proc.returns(Phoebe::Internal::Type::Converter::Input)
@@ -47,7 +56,7 @@ module Phoebe
               T::Hash[
                 Symbol,
                 T.all(
-                  Phoebe::Internal::Type::BaseModel::KnownFieldShape,
+                  Phoebe::Internal::Type::BaseModel::KnownField,
                   { type: Phoebe::Internal::Type::Converter::Input }
                 )
               ]

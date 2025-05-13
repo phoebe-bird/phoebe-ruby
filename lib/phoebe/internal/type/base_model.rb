@@ -6,6 +6,7 @@ module Phoebe
       # @abstract
       class BaseModel
         extend Phoebe::Internal::Type::Converter
+        extend Phoebe::Internal::Util::SorbetRuntimeSupport
 
         class << self
           # @api private
@@ -13,10 +14,16 @@ module Phoebe
           # Assumes superclass fields are totally defined before fields are accessed /
           # defined on subclasses.
           #
-          # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
-          def known_fields
-            @known_fields ||= (self < Phoebe::Internal::Type::BaseModel ? superclass.known_fields.dup : {})
+          # @param child [Class<Phoebe::Internal::Type::BaseModel>]
+          def inherited(child)
+            super
+            child.known_fields.replace(known_fields.dup)
           end
+
+          # @api private
+          #
+          # @return [Hash{Symbol=>Hash{Symbol=>Object}}]
+          def known_fields = @known_fields ||= {}
 
           # @api private
           #
@@ -199,7 +206,7 @@ module Phoebe
           #
           #   @option state [Integer] :branched
           #
-          # @return [Phoebe::Internal::Type::BaseModel, Object]
+          # @return [self, Object]
           def coerce(value, state:)
             exactness = state.fetch(:exactness)
 
@@ -258,7 +265,7 @@ module Phoebe
 
           # @api private
           #
-          # @param value [Phoebe::Internal::Type::BaseModel, Object]
+          # @param value [self, Object]
           #
           # @param state [Hash{Symbol=>Object}] .
           #
@@ -424,6 +431,10 @@ module Phoebe
         #
         # @return [String]
         def inspect = "#<#{self.class}:0x#{object_id.to_s(16)} #{self}>"
+
+        define_sorbet_constant!(:KnownField) do
+          T.type_alias { {mode: T.nilable(Symbol), required: T::Boolean, nilable: T::Boolean} }
+        end
       end
     end
   end

@@ -3,9 +3,12 @@ module Phoebe
     module Type
       class BaseModel
         extend Phoebe::Internal::Type::Converter
+        extend Phoebe::Internal::Util::SorbetRuntimeSupport
 
         type known_field =
           { mode: (:coerce | :dump)?, required: bool, nilable: bool }
+
+        def self.inherited: (self child) -> void
 
         def self.known_fields: -> ::Hash[Symbol, (Phoebe::Internal::Type::BaseModel::known_field
         & { type_fn: (^-> Phoebe::Internal::Type::Converter::input) })]
@@ -58,10 +61,10 @@ module Phoebe
         def self.coerce: (
           Phoebe::Internal::Type::BaseModel | ::Hash[top, top] | top value,
           state: Phoebe::Internal::Type::Converter::coerce_state
-        ) -> (instance | top)
+        ) -> (self | top)
 
         def self.dump: (
-          instance | top value,
+          self | top value,
           state: Phoebe::Internal::Type::Converter::dump_state
         ) -> (::Hash[top, top] | top)
 

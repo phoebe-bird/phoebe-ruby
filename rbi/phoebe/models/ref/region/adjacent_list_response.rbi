@@ -6,7 +6,12 @@ module Phoebe
       module Region
         class AdjacentListResponseItem < Phoebe::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Models::Ref::Region::AdjacentListResponseItem,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           sig { returns(T.nilable(String)) }
           attr_reader :code

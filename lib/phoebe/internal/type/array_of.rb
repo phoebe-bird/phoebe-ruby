@@ -29,7 +29,7 @@ module Phoebe
         #
         #   @option spec [Boolean] :"nil?"
         #
-        # @return [Phoebe::Internal::Type::ArrayOf]
+        # @return [self]
         def self.[](...) = new(...)
 
         # @api public
