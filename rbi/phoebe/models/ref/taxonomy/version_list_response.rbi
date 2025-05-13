@@ -6,7 +6,12 @@ module Phoebe
       module Taxonomy
         class VersionListResponseItem < Phoebe::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Models::Ref::Taxonomy::VersionListResponseItem,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           sig { returns(T.nilable(Float)) }
           attr_reader :authority_ver

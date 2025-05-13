@@ -7,7 +7,13 @@ module Phoebe
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
 
-        OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+        OrHash =
+          T.type_alias do
+            T.any(
+              Phoebe::Product::Top100RetrieveParams,
+              Phoebe::Internal::AnyHash
+            )
+          end
 
         sig { returns(String) }
         attr_accessor :region_code

@@ -6,6 +6,7 @@ module Phoebe
       # @api private
       module Union
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         # @api private
         #

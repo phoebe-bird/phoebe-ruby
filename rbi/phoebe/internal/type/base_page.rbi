@@ -29,8 +29,7 @@ module Phoebe
         sig do
           params(
             client: Phoebe::Internal::Transport::BaseClient,
-            req:
-              Phoebe::Internal::Transport::BaseClient::RequestComponentsShape,
+            req: Phoebe::Internal::Transport::BaseClient::RequestComponents,
             headers: T.any(T::Hash[String, String], Net::HTTPHeader),
             page_data: T.anything
           ).void

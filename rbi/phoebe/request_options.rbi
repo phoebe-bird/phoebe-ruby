@@ -7,7 +7,8 @@ module Phoebe
   # When making a request, you can pass an actual {RequestOptions} instance, or
   # simply pass a Hash with symbol keys matching the attributes on this class.
   class RequestOptions < Phoebe::Internal::Type::BaseModel
-    OrHash = T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+    OrHash =
+      T.type_alias { T.any(Phoebe::RequestOptions, Phoebe::Internal::AnyHash) }
 
     # @api private
     sig { params(opts: Phoebe::RequestOptions::OrHash).void }

@@ -1,5 +1,7 @@
 module Phoebe
   module Internal
+    extend Phoebe::Internal::Util::SorbetRuntimeSupport
+
     OMIT: Object
   end
 end

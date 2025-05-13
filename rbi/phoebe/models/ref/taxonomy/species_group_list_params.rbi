@@ -9,7 +9,12 @@ module Phoebe
           include Phoebe::Internal::Type::RequestParameters
 
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Ref::Taxonomy::SpeciesGroupListParams,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           # Locale for species group names. English names are returned for any non-listed
           # locale or any non-translated group name.

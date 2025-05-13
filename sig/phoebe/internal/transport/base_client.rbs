@@ -2,6 +2,8 @@ module Phoebe
   module Internal
     module Transport
       class BaseClient
+        extend Phoebe::Internal::Util::SorbetRuntimeSupport
+
         type request_components =
           {
             method: Symbol,
@@ -20,7 +22,6 @@ module Phoebe
             model: Phoebe::Internal::Type::Converter::input?,
             options: Phoebe::request_opts?
           }
-
         type request_input =
           {
             method: Symbol,

@@ -10,7 +10,12 @@ module Phoebe
             include Phoebe::Internal::Type::RequestParameters
 
             OrHash =
-              T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Phoebe::Data::Observations::Recent::NotableListParams,
+                  Phoebe::Internal::AnyHash
+                )
+              end
 
             # The number of days back to fetch observations.
             sig { returns(T.nilable(Integer)) }

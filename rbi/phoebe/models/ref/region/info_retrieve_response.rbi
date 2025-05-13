@@ -6,7 +6,12 @@ module Phoebe
       module Region
         class InfoRetrieveResponse < Phoebe::Internal::Type::BaseModel
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Models::Ref::Region::InfoRetrieveResponse,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           sig do
             returns(
@@ -55,7 +60,12 @@ module Phoebe
 
           class Bounds < Phoebe::Internal::Type::BaseModel
             OrHash =
-              T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+              T.type_alias do
+                T.any(
+                  Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds,
+                  Phoebe::Internal::AnyHash
+                )
+              end
 
             sig { returns(T.nilable(Float)) }
             attr_reader :max_x

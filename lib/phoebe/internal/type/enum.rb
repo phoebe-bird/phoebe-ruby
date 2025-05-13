@@ -17,6 +17,7 @@ module Phoebe
       # values safely.
       module Enum
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         # All of the valid Symbol values for this enum.
         #

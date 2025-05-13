@@ -3,6 +3,7 @@ module Phoebe
     module Type
       module Union
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         private def self.known_variants: -> ::Array[[Symbol?, (^-> Phoebe::Internal::Type::Converter::input)]]
 

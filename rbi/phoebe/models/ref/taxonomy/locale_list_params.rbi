@@ -9,7 +9,12 @@ module Phoebe
           include Phoebe::Internal::Type::RequestParameters
 
           OrHash =
-            T.type_alias { T.any(T.self_type, Phoebe::Internal::AnyHash) }
+            T.type_alias do
+              T.any(
+                Phoebe::Ref::Taxonomy::LocaleListParams,
+                Phoebe::Internal::AnyHash
+              )
+            end
 
           sig { returns(T.nilable(String)) }
           attr_reader :accept_language
