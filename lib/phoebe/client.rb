@@ -51,10 +51,10 @@ module Phoebe
     def initialize(
       api_key: ENV["EBIRD_API_KEY"],
       base_url: ENV["PHOEBE_BASE_URL"],
-      max_retries: Phoebe::Client::DEFAULT_MAX_RETRIES,
-      timeout: Phoebe::Client::DEFAULT_TIMEOUT_IN_SECONDS,
-      initial_retry_delay: Phoebe::Client::DEFAULT_INITIAL_RETRY_DELAY,
-      max_retry_delay: Phoebe::Client::DEFAULT_MAX_RETRY_DELAY
+      max_retries: self.class::DEFAULT_MAX_RETRIES,
+      timeout: self.class::DEFAULT_TIMEOUT_IN_SECONDS,
+      initial_retry_delay: self.class::DEFAULT_INITIAL_RETRY_DELAY,
+      max_retry_delay: self.class::DEFAULT_MAX_RETRY_DELAY
     )
       base_url ||= "https://api.ebird.org/v2"
 
