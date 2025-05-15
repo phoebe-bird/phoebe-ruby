@@ -386,6 +386,14 @@ module Phoebe
         # @param keys [Array<Symbol>, nil]
         #
         # @return [Hash{Symbol=>Object}]
+        #
+        # @example
+        #   # `observation` is a `Phoebe::Data::Observation`
+        #   observation => {
+        #     id: id,
+        #     com_name: com_name,
+        #     firstname: firstname
+        #   }
         def deconstruct_keys(keys)
           (keys || self.class.known_fields.keys)
             .filter_map do |k|
