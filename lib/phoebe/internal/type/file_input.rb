@@ -89,6 +89,13 @@ module Phoebe
 
             value
           end
+
+          # @api private
+          #
+          # @return [Object]
+          def to_sorbet_type
+            T.any(Pathname, StringIO, IO, String, Phoebe::FilePart)
+          end
         end
       end
     end

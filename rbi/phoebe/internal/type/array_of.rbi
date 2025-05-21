@@ -8,6 +8,7 @@ module Phoebe
       # Array of items of a given type.
       class ArrayOf
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         abstract!
 
@@ -61,6 +62,11 @@ module Phoebe
             .returns(T.any(T::Array[T.anything], T.anything))
         end
         def dump(value, state:)
+        end
+
+        # @api private
+        sig { returns(T.anything) }
+        def to_sorbet_type
         end
 
         # @api private

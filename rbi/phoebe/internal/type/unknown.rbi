@@ -8,6 +8,7 @@ module Phoebe
       # When we don't know what to expect for the value.
       class Unknown
         extend Phoebe::Internal::Type::Converter
+        extend Phoebe::Internal::Util::SorbetRuntimeSupport
 
         abstract!
 
@@ -42,6 +43,11 @@ module Phoebe
               .returns(T.anything)
           end
           def dump(value, state:)
+          end
+
+          # @api private
+          sig { returns(T.anything) }
+          def to_sorbet_type
           end
         end
       end

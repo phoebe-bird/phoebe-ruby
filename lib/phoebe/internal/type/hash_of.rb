@@ -12,6 +12,7 @@ module Phoebe
       # Hash of items of a given type.
       class HashOf
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         private_class_method :new
 
@@ -128,6 +129,13 @@ module Phoebe
           else
             super
           end
+        end
+
+        # @api private
+        #
+        # @return [Object]
+        def to_sorbet_type
+          T::Hash[Phoebe::Internal::Util::SorbetRuntimeSupport.to_sorbet_type(item_type)]
         end
 
         # @api private
