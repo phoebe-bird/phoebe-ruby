@@ -2,6 +2,8 @@ module Phoebe
   module Internal
     extend Phoebe::Internal::Util::SorbetRuntimeSupport
 
+    type file_input = Pathname | StringIO | IO | String | Phoebe::FilePart
+
     OMIT: Object
   end
 end

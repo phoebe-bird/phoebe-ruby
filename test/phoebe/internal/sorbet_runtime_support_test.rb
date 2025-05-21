@@ -25,6 +25,7 @@ class Phoebe::Test::SorbetRuntimeSupportTest < Minitest::Test
     err = Phoebe::Internal::Util::SorbetRuntimeSupport::MissingSorbetRuntimeError
 
     assert_raises(err) { Phoebe::Internal::AnyHash }
+    assert_raises(err) { Phoebe::Internal::FileInput }
     assert_raises(err) { Phoebe::Internal::Type::Converter::Input }
     assert_raises(err) { Phoebe::Internal::Type::Converter::CoerceState }
     assert_raises(err) { Phoebe::Internal::Type::Converter::DumpState }
