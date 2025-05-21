@@ -3,6 +3,7 @@ module Phoebe
     module Type
       class HashOf[Elem]
         include Phoebe::Internal::Type::Converter
+        include Phoebe::Internal::Util::SorbetRuntimeSupport
 
         def self.[]: (
           ::Hash[Symbol, top]
@@ -26,6 +27,8 @@ module Phoebe
           ::Hash[top, top] | top value,
           state: Phoebe::Internal::Type::Converter::dump_state
         ) -> (::Hash[Symbol, top] | top)
+
+        def to_sorbet_type: -> top
 
         def item_type: -> Elem
 
