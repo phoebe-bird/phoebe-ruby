@@ -44,6 +44,15 @@ module Phoebe
           ?user_display_name: String,
           ?user_id: String
         ) -> void
+
+        def to_hash: -> {
+          num_complete_checklists: Integer,
+          num_species: Integer,
+          profile_handle: String,
+          row_num: Integer,
+          user_display_name: String,
+          user_id: String
+        }
       end
 
       type top100_retrieve_response =

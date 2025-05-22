@@ -26,6 +26,12 @@ module Phoebe
           ?num_contributors: Integer,
           ?num_species: Integer
         ) -> void
+
+        def to_hash: -> {
+          num_checklists: Integer,
+          num_contributors: Integer,
+          num_species: Integer
+        }
       end
     end
   end

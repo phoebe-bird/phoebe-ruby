@@ -25,6 +25,12 @@ module Phoebe
           ?request_options: Phoebe::request_opts
         ) -> void
 
+        def to_hash: -> {
+          back: Integer,
+          fmt: Phoebe::Models::Ref::HotspotListParams::fmt,
+          request_options: Phoebe::RequestOptions
+        }
+
         type fmt = :csv | :json
 
         module Fmt

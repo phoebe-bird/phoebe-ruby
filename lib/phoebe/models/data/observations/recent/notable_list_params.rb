@@ -19,7 +19,7 @@ module Phoebe
             # @!attribute detail
             #   Include a subset (simple), or all (full), of the fields available.
             #
-            #   @return [Symbol, Phoebe::Data::Observations::Recent::NotableListParams::Detail, nil]
+            #   @return [Symbol, Phoebe::Models::Data::Observations::Recent::NotableListParams::Detail, nil]
             optional :detail, enum: -> { Phoebe::Data::Observations::Recent::NotableListParams::Detail }
 
             # @!attribute hotspot
@@ -49,7 +49,7 @@ module Phoebe
             # @!method initialize(back: nil, detail: nil, hotspot: nil, max_results: nil, r: nil, spp_locale: nil, request_options: {})
             #   @param back [Integer] The number of days back to fetch observations.
             #
-            #   @param detail [Symbol, Phoebe::Data::Observations::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
+            #   @param detail [Symbol, Phoebe::Models::Data::Observations::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
             #
             #   @param hotspot [Boolean] Only fetch observations from hotspots
             #

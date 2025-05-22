@@ -14,6 +14,8 @@ module Phoebe
           def latest=: (bool) -> bool
 
           def initialize: (?authority_ver: Float, ?latest: bool) -> void
+
+          def to_hash: -> { authority_ver: Float, latest: bool }
         end
 
         type version_list_response =

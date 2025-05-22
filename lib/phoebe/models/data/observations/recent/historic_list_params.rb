@@ -28,13 +28,13 @@ module Phoebe
             # @!attribute cat
             #   Only fetch observations from these taxonomic categories
             #
-            #   @return [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Cat, nil]
+            #   @return [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Cat, nil]
             optional :cat, enum: -> { Phoebe::Data::Observations::Recent::HistoricListParams::Cat }
 
             # @!attribute detail
             #   Include a subset (simple), or all (full), of the fields available.
             #
-            #   @return [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Detail, nil]
+            #   @return [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Detail, nil]
             optional :detail, enum: -> { Phoebe::Data::Observations::Recent::HistoricListParams::Detail }
 
             # @!attribute hotspot
@@ -64,7 +64,7 @@ module Phoebe
             # @!attribute rank
             #   Include latest observation of the day, or the first added
             #
-            #   @return [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Rank, nil]
+            #   @return [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Rank, nil]
             optional :rank, enum: -> { Phoebe::Data::Observations::Recent::HistoricListParams::Rank }
 
             # @!attribute spp_locale
@@ -80,9 +80,9 @@ module Phoebe
             #
             #   @param m [Integer]
             #
-            #   @param cat [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Cat] Only fetch observations from these taxonomic categories
+            #   @param cat [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Cat] Only fetch observations from these taxonomic categories
             #
-            #   @param detail [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Detail] Include a subset (simple), or all (full), of the fields available.
+            #   @param detail [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Detail] Include a subset (simple), or all (full), of the fields available.
             #
             #   @param hotspot [Boolean] Only fetch observations from hotspots
             #
@@ -92,7 +92,7 @@ module Phoebe
             #
             #   @param r [Array<String>] Fetch observations from up to 50 locations
             #
-            #   @param rank [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Rank] Include latest observation of the day, or the first added
+            #   @param rank [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Rank] Include latest observation of the day, or the first added
             #
             #   @param spp_locale [String] Use this language for species common names
             #

@@ -17,7 +17,7 @@ module Phoebe
             #
             # @param back [Integer] The number of days back to fetch observations.
             #
-            # @param detail [Symbol, Phoebe::Data::Observations::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
+            # @param detail [Symbol, Phoebe::Models::Data::Observations::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
             #
             # @param hotspot [Boolean] Only fetch observations from hotspots
             #
@@ -29,7 +29,7 @@ module Phoebe
             #
             # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
             #
-            # @return [Array<Phoebe::Data::Observation>]
+            # @return [Array<Phoebe::Models::Data::Observation>]
             #
             # @see Phoebe::Models::Data::Observations::Recent::NotableListParams
             def list(region_code, params = {})

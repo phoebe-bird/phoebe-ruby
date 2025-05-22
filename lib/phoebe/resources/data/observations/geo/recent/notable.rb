@@ -21,7 +21,7 @@ module Phoebe
               #
               # @param back [Integer] The number of days back to fetch observations.
               #
-              # @param detail [Symbol, Phoebe::Data::Observations::Geo::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
+              # @param detail [Symbol, Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
               #
               # @param dist [Integer] The search radius from the given position, in kilometers.
               #
@@ -33,7 +33,7 @@ module Phoebe
               #
               # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
               #
-              # @return [Array<Phoebe::Data::Observation>]
+              # @return [Array<Phoebe::Models::Data::Observation>]
               #
               # @see Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams
               def list(params)

@@ -134,6 +134,29 @@ module Phoebe
             ?user_display_name: String
           ) -> void
 
+          def to_hash: -> {
+            all_obs_reported: bool,
+            checklist_id: String,
+            creation_dt: String,
+            duration_hrs: Float,
+            iso_obs_date: String,
+            last_edited_dt: String,
+            loc: Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Loc,
+            loc_id: String,
+            num_observers: Integer,
+            num_species: Integer,
+            obs: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob],
+            obs_dt: String,
+            obs_time: String,
+            obs_time_valid: bool,
+            proj_id: String,
+            protocol_id: String,
+            sub_id: String,
+            submission_method_code: String,
+            :subnational1_code => String,
+            user_display_name: String
+          }
+
           type loc =
             {
               country_code: String,
@@ -219,6 +242,22 @@ module Phoebe
               ?subnational1_code: String,
               ?subnational1_name: String
             ) -> void
+
+            def to_hash: -> {
+              country_code: String,
+              country_name: String,
+              hierarchical_name: String,
+              is_hotspot: bool,
+              lat: Float,
+              latitude: Float,
+              lng: Float,
+              loc_id: String,
+              loc_name: String,
+              longitude: Float,
+              name: String,
+              :subnational1_code => String,
+              :subnational1_name => String
+            }
           end
 
           type ob =
@@ -254,6 +293,13 @@ module Phoebe
               ?obs_id: String,
               ?species_code: String
             ) -> void
+
+            def to_hash: -> {
+              obs_aux: ::Array[Phoebe::Models::Product::Lists::HistoricalRetrieveResponseItem::Ob::ObsAux],
+              obs_dt: String,
+              obs_id: String,
+              species_code: String
+            }
 
             type obs_aux =
               {
@@ -304,6 +350,16 @@ module Phoebe
                 ?sub_id: String,
                 ?value: String
               ) -> void
+
+              def to_hash: -> {
+                aux_code: String,
+                entry_method_code: String,
+                field_name: String,
+                obs_id: String,
+                species_code: String,
+                sub_id: String,
+                value: String
+              }
             end
           end
         end

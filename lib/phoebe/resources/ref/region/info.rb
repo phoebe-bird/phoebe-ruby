@@ -27,7 +27,7 @@ module Phoebe
           #
           # @param delim [String] The characters used to separate elements in the name.
           #
-          # @param region_name_format [Symbol, Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat] Control how the name is displayed.
+          # @param region_name_format [Symbol, Phoebe::Models::Ref::Region::InfoRetrieveParams::RegionNameFormat] Control how the name is displayed.
           #
           # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
           #

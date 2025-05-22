@@ -29,6 +29,12 @@ module Phoebe
             ?group_order: Integer,
             ?taxon_order_bounds: ::Array[::Array[Float]]
           ) -> void
+
+          def to_hash: -> {
+            group_name: String,
+            group_order: Integer,
+            taxon_order_bounds: ::Array[::Array[Float]]
+          }
         end
 
         type species_group_list_response =

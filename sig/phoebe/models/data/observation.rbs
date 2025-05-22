@@ -104,6 +104,25 @@ module Phoebe
           ?species_code: String,
           ?sub_id: String
         ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          com_name: String,
+          firstname: String,
+          how_many: Integer,
+          lastname: String,
+          lat: Float,
+          lng: Float,
+          location_private: bool,
+          loc_id: String,
+          loc_name: String,
+          obs_dt: String,
+          obs_reviewed: bool,
+          obs_valid: bool,
+          sci_name: String,
+          species_code: String,
+          sub_id: String
+        }
       end
     end
   end

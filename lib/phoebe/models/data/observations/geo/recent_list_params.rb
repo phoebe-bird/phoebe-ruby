@@ -29,7 +29,7 @@ module Phoebe
             # @!attribute cat
             #   Only fetch observations from these taxonomic categories
             #
-            #   @return [Symbol, Phoebe::Data::Observations::Geo::RecentListParams::Cat, nil]
+            #   @return [Symbol, Phoebe::Models::Data::Observations::Geo::RecentListParams::Cat, nil]
             optional :cat, enum: -> { Phoebe::Data::Observations::Geo::RecentListParams::Cat }
 
             # @!attribute dist
@@ -59,7 +59,7 @@ module Phoebe
             # @!attribute sort
             #   Sort observations by taxonomy or by date, most recent first.
             #
-            #   @return [Symbol, Phoebe::Data::Observations::Geo::RecentListParams::Sort, nil]
+            #   @return [Symbol, Phoebe::Models::Data::Observations::Geo::RecentListParams::Sort, nil]
             optional :sort, enum: -> { Phoebe::Data::Observations::Geo::RecentListParams::Sort }
 
             # @!attribute spp_locale
@@ -75,7 +75,7 @@ module Phoebe
             #
             #   @param back [Integer] The number of days back to fetch observations.
             #
-            #   @param cat [Symbol, Phoebe::Data::Observations::Geo::RecentListParams::Cat] Only fetch observations from these taxonomic categories
+            #   @param cat [Symbol, Phoebe::Models::Data::Observations::Geo::RecentListParams::Cat] Only fetch observations from these taxonomic categories
             #
             #   @param dist [Integer] The search radius from the given position, in kilometers.
             #
@@ -85,7 +85,7 @@ module Phoebe
             #
             #   @param max_results [Integer] Only fetch this number of observations
             #
-            #   @param sort [Symbol, Phoebe::Data::Observations::Geo::RecentListParams::Sort] Sort observations by taxonomy or by date, most recent first.
+            #   @param sort [Symbol, Phoebe::Models::Data::Observations::Geo::RecentListParams::Sort] Sort observations by taxonomy or by date, most recent first.
             #
             #   @param spp_locale [String] Use this language for species common names
             #

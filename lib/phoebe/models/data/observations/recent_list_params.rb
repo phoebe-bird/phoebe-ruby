@@ -18,7 +18,7 @@ module Phoebe
           # @!attribute cat
           #   Only fetch observations from these taxonomic categories
           #
-          #   @return [Symbol, Phoebe::Data::Observations::RecentListParams::Cat, nil]
+          #   @return [Symbol, Phoebe::Models::Data::Observations::RecentListParams::Cat, nil]
           optional :cat, enum: -> { Phoebe::Data::Observations::RecentListParams::Cat }
 
           # @!attribute hotspot
@@ -54,7 +54,7 @@ module Phoebe
           # @!method initialize(back: nil, cat: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, spp_locale: nil, request_options: {})
           #   @param back [Integer] The number of days back to fetch observations.
           #
-          #   @param cat [Symbol, Phoebe::Data::Observations::RecentListParams::Cat] Only fetch observations from these taxonomic categories
+          #   @param cat [Symbol, Phoebe::Models::Data::Observations::RecentListParams::Cat] Only fetch observations from these taxonomic categories
           #
           #   @param hotspot [Boolean] Only fetch observations from hotspots
           #

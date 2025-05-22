@@ -33,7 +33,7 @@ module Phoebe
           # @!attribute sort_key
           #   Order the results by the date of the checklist or by the date it was submitted.
           #
-          #   @return [Symbol, Phoebe::Product::Lists::HistoricalRetrieveParams::SortKey, nil]
+          #   @return [Symbol, Phoebe::Models::Product::Lists::HistoricalRetrieveParams::SortKey, nil]
           optional :sort_key, enum: -> { Phoebe::Product::Lists::HistoricalRetrieveParams::SortKey }
 
           # @!method initialize(region_code:, y_:, m:, max_results: nil, sort_key: nil, request_options: {})
@@ -45,7 +45,7 @@ module Phoebe
           #
           #   @param max_results [Integer] Only fetch this number of checklists.
           #
-          #   @param sort_key [Symbol, Phoebe::Product::Lists::HistoricalRetrieveParams::SortKey] Order the results by the date of the checklist or by the date it was submitted.
+          #   @param sort_key [Symbol, Phoebe::Models::Product::Lists::HistoricalRetrieveParams::SortKey] Order the results by the date of the checklist or by the date it was submitted.
           #
           #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
 

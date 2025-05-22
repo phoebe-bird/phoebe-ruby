@@ -16,7 +16,7 @@ module Phoebe
           #
           # @param region_type [String] Path param: The region type: 'country', 'subnational1' or 'subnational2'.
           #
-          # @param fmt [Symbol, Phoebe::Ref::Region::ListListParams::Fmt] Query param: Fetch the records in CSV or JSON format.
+          # @param fmt [Symbol, Phoebe::Models::Ref::Region::ListListParams::Fmt] Query param: Fetch the records in CSV or JSON format.
           #
           # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
           #

@@ -18,7 +18,7 @@ module Phoebe
           # @!attribute fmt
           #   Fetch the records in CSV or JSON format.
           #
-          #   @return [Symbol, Phoebe::Ref::Taxonomy::EbirdRetrieveParams::Fmt, nil]
+          #   @return [Symbol, Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::Fmt, nil]
           optional :fmt, enum: -> { Phoebe::Ref::Taxonomy::EbirdRetrieveParams::Fmt }
 
           # @!attribute locale
@@ -42,7 +42,7 @@ module Phoebe
           # @!method initialize(cat: nil, fmt: nil, locale: nil, species: nil, version: nil, request_options: {})
           #   @param cat [String] Only fetch records from these taxonomic categories.
           #
-          #   @param fmt [Symbol, Phoebe::Ref::Taxonomy::EbirdRetrieveParams::Fmt] Fetch the records in CSV or JSON format.
+          #   @param fmt [Symbol, Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::Fmt] Fetch the records in CSV or JSON format.
           #
           #   @param locale [String] Use this language for common names.
           #

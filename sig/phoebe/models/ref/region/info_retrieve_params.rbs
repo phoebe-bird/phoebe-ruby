@@ -29,6 +29,12 @@ module Phoebe
             ?request_options: Phoebe::request_opts
           ) -> void
 
+          def to_hash: -> {
+            delim: String,
+            region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format,
+            request_options: Phoebe::RequestOptions
+          }
+
           type region_name_format =
             :detailed
             | :detailednoqual

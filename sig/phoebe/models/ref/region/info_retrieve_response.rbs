@@ -24,6 +24,11 @@ module Phoebe
             ?result: String
           ) -> void
 
+          def to_hash: -> {
+            bounds: Phoebe::Models::Ref::Region::InfoRetrieveResponse::Bounds,
+            result: String
+          }
+
           type bounds =
             { max_x: Float, max_y: Float, min_x: Float, min_y: Float }
 
@@ -50,6 +55,13 @@ module Phoebe
               ?min_x: Float,
               ?min_y: Float
             ) -> void
+
+            def to_hash: -> {
+              max_x: Float,
+              max_y: Float,
+              min_x: Float,
+              min_y: Float
+            }
           end
         end
       end

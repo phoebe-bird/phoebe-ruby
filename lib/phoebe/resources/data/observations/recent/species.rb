@@ -38,7 +38,7 @@ module Phoebe
             #
             # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
             #
-            # @return [Array<Phoebe::Data::Observation>]
+            # @return [Array<Phoebe::Models::Data::Observation>]
             #
             # @see Phoebe::Models::Data::Observations::Recent::SpecieRetrieveParams
             def retrieve(species_code, params)

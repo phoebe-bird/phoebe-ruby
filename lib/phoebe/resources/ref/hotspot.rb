@@ -18,7 +18,7 @@ module Phoebe
         #
         # @param back [Integer] The number of days back to fetch hotspots.
         #
-        # @param fmt [Symbol, Phoebe::Ref::HotspotListParams::Fmt] Fetch the records in CSV or JSON format.
+        # @param fmt [Symbol, Phoebe::Models::Ref::HotspotListParams::Fmt] Fetch the records in CSV or JSON format.
         #
         # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
         #

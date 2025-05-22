@@ -24,7 +24,7 @@ module Phoebe
           #
           # @param back [Integer] The number of days back to fetch observations.
           #
-          # @param cat [Symbol, Phoebe::Data::Observations::RecentListParams::Cat] Only fetch observations from these taxonomic categories
+          # @param cat [Symbol, Phoebe::Models::Data::Observations::RecentListParams::Cat] Only fetch observations from these taxonomic categories
           #
           # @param hotspot [Boolean] Only fetch observations from hotspots
           #
@@ -38,7 +38,7 @@ module Phoebe
           #
           # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
           #
-          # @return [Array<Phoebe::Data::Observation>]
+          # @return [Array<Phoebe::Models::Data::Observation>]
           #
           # @see Phoebe::Models::Data::Observations::RecentListParams
           def list(region_code, params = {})

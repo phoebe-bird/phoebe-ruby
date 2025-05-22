@@ -9,6 +9,8 @@ module Phoebe
         include Phoebe::Internal::Type::RequestParameters
 
         def initialize: (?request_options: Phoebe::request_opts) -> void
+
+        def to_hash: -> { request_options: Phoebe::RequestOptions }
       end
     end
   end

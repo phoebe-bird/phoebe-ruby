@@ -23,6 +23,8 @@ module Phoebe
             ?last_updated: String,
             ?name: String
           ) -> void
+
+          def to_hash: -> { code: String, last_updated: String, name: String }
         end
 
         type locale_list_response =
