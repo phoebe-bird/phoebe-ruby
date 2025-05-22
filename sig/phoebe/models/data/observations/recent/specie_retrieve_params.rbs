@@ -55,6 +55,17 @@ module Phoebe
               ?spp_locale: String,
               ?request_options: Phoebe::request_opts
             ) -> void
+
+            def to_hash: -> {
+              region_code: String,
+              back: Integer,
+              hotspot: bool,
+              include_provisional: bool,
+              max_results: Integer,
+              r: ::Array[String],
+              spp_locale: String,
+              request_options: Phoebe::RequestOptions
+            }
           end
         end
       end

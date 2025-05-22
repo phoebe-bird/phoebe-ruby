@@ -32,7 +32,7 @@ module Phoebe
         # @!attribute ranked_by
         #   Order by number of complete checklists (cl) or by number of species seen (spp).
         #
-        #   @return [Symbol, Phoebe::Product::Top100RetrieveParams::RankedBy, nil]
+        #   @return [Symbol, Phoebe::Models::Product::Top100RetrieveParams::RankedBy, nil]
         optional :ranked_by, enum: -> { Phoebe::Product::Top100RetrieveParams::RankedBy }
 
         # @!method initialize(region_code:, y_:, m:, max_results: nil, ranked_by: nil, request_options: {})
@@ -44,7 +44,7 @@ module Phoebe
         #
         #   @param max_results [Integer] Only fetch this number of contributors.
         #
-        #   @param ranked_by [Symbol, Phoebe::Product::Top100RetrieveParams::RankedBy] Order by number of complete checklists (cl) or by number of species seen (spp).
+        #   @param ranked_by [Symbol, Phoebe::Models::Product::Top100RetrieveParams::RankedBy] Order by number of complete checklists (cl) or by number of species seen (spp).
         #
         #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
 

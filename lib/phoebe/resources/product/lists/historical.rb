@@ -23,7 +23,7 @@ module Phoebe
           #
           # @param max_results [Integer] Query param: Only fetch this number of checklists.
           #
-          # @param sort_key [Symbol, Phoebe::Product::Lists::HistoricalRetrieveParams::SortKey] Query param: Order the results by the date of the checklist or by the date it wa
+          # @param sort_key [Symbol, Phoebe::Models::Product::Lists::HistoricalRetrieveParams::SortKey] Query param: Order the results by the date of the checklist or by the date it wa
           #
           # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
           #

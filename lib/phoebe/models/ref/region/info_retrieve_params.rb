@@ -18,13 +18,13 @@ module Phoebe
           # @!attribute region_name_format
           #   Control how the name is displayed.
           #
-          #   @return [Symbol, Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat, nil]
+          #   @return [Symbol, Phoebe::Models::Ref::Region::InfoRetrieveParams::RegionNameFormat, nil]
           optional :region_name_format, enum: -> { Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat }
 
           # @!method initialize(delim: nil, region_name_format: nil, request_options: {})
           #   @param delim [String] The characters used to separate elements in the name.
           #
-          #   @param region_name_format [Symbol, Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat] Control how the name is displayed.
+          #   @param region_name_format [Symbol, Phoebe::Models::Ref::Region::InfoRetrieveParams::RegionNameFormat] Control how the name is displayed.
           #
           #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
 

@@ -63,6 +63,18 @@ module Phoebe
                 ?request_options: Phoebe::request_opts
               ) -> void
 
+              def to_hash: -> {
+                lat: Float,
+                lng: Float,
+                back: Integer,
+                detail: Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::detail,
+                dist: Integer,
+                hotspot: bool,
+                max_results: Integer,
+                spp_locale: String,
+                request_options: Phoebe::RequestOptions
+              }
+
               type detail = :simple | :full
 
               module Detail

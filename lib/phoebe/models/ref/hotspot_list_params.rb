@@ -17,13 +17,13 @@ module Phoebe
         # @!attribute fmt
         #   Fetch the records in CSV or JSON format.
         #
-        #   @return [Symbol, Phoebe::Ref::HotspotListParams::Fmt, nil]
+        #   @return [Symbol, Phoebe::Models::Ref::HotspotListParams::Fmt, nil]
         optional :fmt, enum: -> { Phoebe::Ref::HotspotListParams::Fmt }
 
         # @!method initialize(back: nil, fmt: nil, request_options: {})
         #   @param back [Integer] The number of days back to fetch hotspots.
         #
-        #   @param fmt [Symbol, Phoebe::Ref::HotspotListParams::Fmt] Fetch the records in CSV or JSON format.
+        #   @param fmt [Symbol, Phoebe::Models::Ref::HotspotListParams::Fmt] Fetch the records in CSV or JSON format.
         #
         #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
 

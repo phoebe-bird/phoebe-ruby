@@ -25,7 +25,7 @@ module Phoebe
             #
             # @param back [Integer] The number of days back to fetch observations.
             #
-            # @param cat [Symbol, Phoebe::Data::Observations::Geo::RecentListParams::Cat] Only fetch observations from these taxonomic categories
+            # @param cat [Symbol, Phoebe::Models::Data::Observations::Geo::RecentListParams::Cat] Only fetch observations from these taxonomic categories
             #
             # @param dist [Integer] The search radius from the given position, in kilometers.
             #
@@ -35,13 +35,13 @@ module Phoebe
             #
             # @param max_results [Integer] Only fetch this number of observations
             #
-            # @param sort [Symbol, Phoebe::Data::Observations::Geo::RecentListParams::Sort] Sort observations by taxonomy or by date, most recent first.
+            # @param sort [Symbol, Phoebe::Models::Data::Observations::Geo::RecentListParams::Sort] Sort observations by taxonomy or by date, most recent first.
             #
             # @param spp_locale [String] Use this language for species common names
             #
             # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
             #
-            # @return [Array<Phoebe::Data::Observation>]
+            # @return [Array<Phoebe::Models::Data::Observation>]
             #
             # @see Phoebe::Models::Data::Observations::Geo::RecentListParams
             def list(params)

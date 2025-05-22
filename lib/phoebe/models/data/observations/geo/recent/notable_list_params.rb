@@ -30,7 +30,7 @@ module Phoebe
               # @!attribute detail
               #   Include a subset (simple), or all (full), of the fields available.
               #
-              #   @return [Symbol, Phoebe::Data::Observations::Geo::Recent::NotableListParams::Detail, nil]
+              #   @return [Symbol, Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::Detail, nil]
               optional :detail,
                        enum: -> {
                          Phoebe::Data::Observations::Geo::Recent::NotableListParams::Detail
@@ -67,7 +67,7 @@ module Phoebe
               #
               #   @param back [Integer] The number of days back to fetch observations.
               #
-              #   @param detail [Symbol, Phoebe::Data::Observations::Geo::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
+              #   @param detail [Symbol, Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::Detail] Include a subset (simple), or all (full), of the fields available.
               #
               #   @param dist [Integer] The search radius from the given position, in kilometers.
               #

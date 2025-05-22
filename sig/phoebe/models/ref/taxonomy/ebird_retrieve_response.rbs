@@ -81,6 +81,21 @@ module Phoebe
             ?species_code: String,
             ?taxon_order: Integer
           ) -> void
+
+          def to_hash: -> {
+            banding_codes: ::Array[String],
+            category: String,
+            com_name: String,
+            com_name_codes: ::Array[String],
+            family_code: String,
+            family_com_name: String,
+            family_sci_name: String,
+            order: String,
+            sci_name: String,
+            sci_name_codes: ::Array[String],
+            species_code: String,
+            taxon_order: Integer
+          }
         end
 
         type ebird_retrieve_response =

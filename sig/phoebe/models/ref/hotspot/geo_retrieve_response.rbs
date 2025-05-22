@@ -63,6 +63,18 @@ module Phoebe
             ?subnational1_code: String,
             ?subnational2_code: String
           ) -> void
+
+          def to_hash: -> {
+            country_code: String,
+            lat: Float,
+            latest_obs_dt: String,
+            lng: Float,
+            loc_id: String,
+            loc_name: String,
+            num_species_all_time: Integer,
+            :subnational1_code => String,
+            :subnational2_code => String
+          }
         end
 
         type geo_retrieve_response =

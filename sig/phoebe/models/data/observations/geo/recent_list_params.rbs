@@ -76,6 +76,20 @@ module Phoebe
               ?request_options: Phoebe::request_opts
             ) -> void
 
+            def to_hash: -> {
+              lat: Float,
+              lng: Float,
+              back: Integer,
+              cat: Phoebe::Models::Data::Observations::Geo::RecentListParams::cat,
+              dist: Integer,
+              hotspot: bool,
+              include_provisional: bool,
+              max_results: Integer,
+              sort: Phoebe::Models::Data::Observations::Geo::RecentListParams::sort,
+              spp_locale: String,
+              request_options: Phoebe::RequestOptions
+            }
+
             type cat =
               :species
               | :slash

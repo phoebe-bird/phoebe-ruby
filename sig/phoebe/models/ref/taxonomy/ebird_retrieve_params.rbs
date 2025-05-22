@@ -47,6 +47,15 @@ module Phoebe
             ?request_options: Phoebe::request_opts
           ) -> void
 
+          def to_hash: -> {
+            cat: String,
+            fmt: Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::fmt,
+            locale: String,
+            species: String,
+            version: String,
+            request_options: Phoebe::RequestOptions
+          }
+
           type fmt = :csv | :json
 
           module Fmt

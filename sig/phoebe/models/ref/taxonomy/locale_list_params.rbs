@@ -18,6 +18,11 @@ module Phoebe
             ?accept_language: String,
             ?request_options: Phoebe::request_opts
           ) -> void
+
+          def to_hash: -> {
+            accept_language: String,
+            request_options: Phoebe::RequestOptions
+          }
         end
       end
     end

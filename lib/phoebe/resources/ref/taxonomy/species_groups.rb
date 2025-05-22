@@ -14,7 +14,7 @@ module Phoebe
           #
           # @overload list(species_grouping, group_name_locale: nil, request_options: {})
           #
-          # @param species_grouping [Symbol, Phoebe::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping] The order in which groups are returned.
+          # @param species_grouping [Symbol, Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping] The order in which groups are returned.
           #
           # @param group_name_locale [String] Locale for species group names. English names are returned for any non-listed lo
           #

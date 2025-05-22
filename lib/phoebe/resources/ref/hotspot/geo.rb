@@ -18,7 +18,7 @@ module Phoebe
           #
           # @param dist [Integer] The search radius from the given position, in kilometers.
           #
-          # @param fmt [Symbol, Phoebe::Ref::Hotspot::GeoRetrieveParams::Fmt] Fetch the records in CSV or JSON format.
+          # @param fmt [Symbol, Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::Fmt] Fetch the records in CSV or JSON format.
           #
           # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
           #

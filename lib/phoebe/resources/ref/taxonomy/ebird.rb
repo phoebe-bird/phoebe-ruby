@@ -14,7 +14,7 @@ module Phoebe
           #
           # @param cat [String] Only fetch records from these taxonomic categories.
           #
-          # @param fmt [Symbol, Phoebe::Ref::Taxonomy::EbirdRetrieveParams::Fmt] Fetch the records in CSV or JSON format.
+          # @param fmt [Symbol, Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams::Fmt] Fetch the records in CSV or JSON format.
           #
           # @param locale [String] Use this language for common names.
           #

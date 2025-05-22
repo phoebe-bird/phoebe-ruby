@@ -19,6 +19,11 @@ module Phoebe
             ?request_options: Phoebe::request_opts
           ) -> void
 
+          def to_hash: -> {
+            group_name_locale: String,
+            request_options: Phoebe::RequestOptions
+          }
+
           type species_grouping = :merlin | :ebird
 
           module SpeciesGrouping

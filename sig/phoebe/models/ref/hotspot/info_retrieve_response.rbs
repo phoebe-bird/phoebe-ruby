@@ -87,6 +87,22 @@ module Phoebe
             ?subnational1_code: String,
             ?subnational1_name: String
           ) -> void
+
+          def to_hash: -> {
+            country_code: String,
+            country_name: String,
+            hierarchical_name: String,
+            is_hotspot: bool,
+            lat: Float,
+            latitude: Float,
+            lng: Float,
+            loc_id: String,
+            loc_name: String,
+            longitude: Float,
+            name: String,
+            :subnational1_code => String,
+            :subnational1_name => String
+          }
         end
       end
     end

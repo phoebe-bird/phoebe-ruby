@@ -37,7 +37,7 @@ module Phoebe
         #
         # @param max_results [Integer] Query param: Only fetch this number of contributors.
         #
-        # @param ranked_by [Symbol, Phoebe::Product::Top100RetrieveParams::RankedBy] Query param: Order by number of complete checklists (cl) or by number of species
+        # @param ranked_by [Symbol, Phoebe::Models::Product::Top100RetrieveParams::RankedBy] Query param: Order by number of complete checklists (cl) or by number of species
         #
         # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
         #

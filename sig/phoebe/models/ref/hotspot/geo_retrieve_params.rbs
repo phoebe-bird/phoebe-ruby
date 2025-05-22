@@ -43,6 +43,15 @@ module Phoebe
             ?request_options: Phoebe::request_opts
           ) -> void
 
+          def to_hash: -> {
+            lat: Float,
+            lng: Float,
+            back: Integer,
+            dist: Integer,
+            fmt: Phoebe::Models::Ref::Hotspot::GeoRetrieveParams::fmt,
+            request_options: Phoebe::RequestOptions
+          }
+
           type fmt = :csv | :json
 
           module Fmt

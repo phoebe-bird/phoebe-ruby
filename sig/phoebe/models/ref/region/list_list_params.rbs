@@ -27,6 +27,12 @@ module Phoebe
             ?request_options: Phoebe::request_opts
           ) -> void
 
+          def to_hash: -> {
+            region_type: String,
+            fmt: Phoebe::Models::Ref::Region::ListListParams::fmt,
+            request_options: Phoebe::RequestOptions
+          }
+
           type fmt = :csv | :json
 
           module Fmt

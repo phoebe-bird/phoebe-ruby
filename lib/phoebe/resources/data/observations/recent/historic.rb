@@ -22,9 +22,9 @@ module Phoebe
             #
             # @param m [Integer] Path param:
             #
-            # @param cat [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Cat] Query param: Only fetch observations from these taxonomic categories
+            # @param cat [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Cat] Query param: Only fetch observations from these taxonomic categories
             #
-            # @param detail [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Detail] Query param: Include a subset (simple), or all (full), of the fields available.
+            # @param detail [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Detail] Query param: Include a subset (simple), or all (full), of the fields available.
             #
             # @param hotspot [Boolean] Query param: Only fetch observations from hotspots
             #
@@ -34,13 +34,13 @@ module Phoebe
             #
             # @param r [Array<String>] Query param: Fetch observations from up to 50 locations
             #
-            # @param rank [Symbol, Phoebe::Data::Observations::Recent::HistoricListParams::Rank] Query param: Include latest observation of the day, or the first added
+            # @param rank [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Rank] Query param: Include latest observation of the day, or the first added
             #
             # @param spp_locale [String] Query param: Use this language for species common names
             #
             # @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}, nil]
             #
-            # @return [Array<Phoebe::Data::Observation>]
+            # @return [Array<Phoebe::Models::Data::Observation>]
             #
             # @see Phoebe::Models::Data::Observations::Recent::HistoricListParams
             def list(d, params)
