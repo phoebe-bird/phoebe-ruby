@@ -22,6 +22,8 @@ module Phoebe
 
         class << self
           # @api private
+          #
+          # No coercion needed for Unknown type.
           sig do
             override
               .params(

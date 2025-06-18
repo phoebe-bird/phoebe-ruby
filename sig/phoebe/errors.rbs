@@ -5,6 +5,15 @@ module Phoebe
     end
 
     class ConversionError < Phoebe::Errors::Error
+      def cause: -> StandardError?
+
+      def initialize: (
+        on: Class,
+        method: Symbol,
+        target: top,
+        value: top,
+        ?cause: StandardError?
+      ) -> void
     end
 
     class APIError < Phoebe::Errors::Error
