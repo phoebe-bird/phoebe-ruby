@@ -244,7 +244,7 @@ module Phoebe
         #
         # @return [String]
         def uri_origin(uri)
-          "#{uri.scheme}://#{uri.host}#{uri.port == uri.default_port ? '' : ":#{uri.port}"}"
+          "#{uri.scheme}://#{uri.host}#{":#{uri.port}" unless uri.port == uri.default_port}"
         end
 
         # @api private
@@ -566,7 +566,8 @@ module Phoebe
         #
         # @return [Array(String, Enumerable<String>)]
         private def encode_multipart_streaming(body)
-          boundary = SecureRandom.urlsafe_base64(60)
+          # RFC 1521 Section 7.2.1 says we should have 70 char maximum for boundary length
+          boundary = SecureRandom.urlsafe_base64(46)
 
           closing = []
           strio = writable_enum do |y|
@@ -647,7 +648,7 @@ module Phoebe
         #
         # Assumes each chunk in stream has `Encoding::BINARY`.
         #
-        # @param headers [Hash{String=>String}, Net::HTTPHeader]
+        # @param headers [Hash{String=>String}]
         # @param stream [Enumerable<String>]
         # @param suppress_error [Boolean]
         #

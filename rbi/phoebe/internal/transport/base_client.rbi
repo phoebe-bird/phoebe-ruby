@@ -84,10 +84,9 @@ module Phoebe
 
           # @api private
           sig do
-            params(
-              status: Integer,
-              headers: T.any(T::Hash[String, String], Net::HTTPHeader)
-            ).returns(T::Boolean)
+            params(status: Integer, headers: T::Hash[String, String]).returns(
+              T::Boolean
+            )
           end
           def should_retry?(status, headers:)
           end
@@ -97,7 +96,7 @@ module Phoebe
             params(
               request: Phoebe::Internal::Transport::BaseClient::RequestInput,
               status: Integer,
-              response_headers: T.any(T::Hash[String, String], Net::HTTPHeader)
+              response_headers: T::Hash[String, String]
             ).returns(Phoebe::Internal::Transport::BaseClient::RequestInput)
           end
           def follow_redirect(request, status:, response_headers:)
@@ -213,7 +212,7 @@ module Phoebe
             send_retry_header: T::Boolean
           ).returns([Integer, Net::HTTPResponse, T::Enumerable[String]])
         end
-        private def send_request(
+        def send_request(
           request,
           redirect_count:,
           retry_count:,

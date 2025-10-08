@@ -16,7 +16,8 @@ module Phoebe
             T::Array[
               [
                 T.nilable(Symbol),
-                T.proc.returns(Phoebe::Internal::Type::Converter::Input)
+                T.proc.returns(Phoebe::Internal::Type::Converter::Input),
+                Phoebe::Internal::AnyHash
               ]
             ]
           )
@@ -25,7 +26,11 @@ module Phoebe
         end
 
         # @api private
-        sig { returns(T::Array[[T.nilable(Symbol), T.anything]]) }
+        sig do
+          returns(
+            T::Array[[T.nilable(Symbol), T.anything, Phoebe::Internal::AnyHash]]
+          )
+        end
         protected def derefed_variants
         end
 

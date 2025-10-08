@@ -31,10 +31,7 @@ module Phoebe
               #   Include a subset (simple), or all (full), of the fields available.
               #
               #   @return [Symbol, Phoebe::Models::Data::Observations::Geo::Recent::NotableListParams::Detail, nil]
-              optional :detail,
-                       enum: -> {
-                         Phoebe::Data::Observations::Geo::Recent::NotableListParams::Detail
-                       }
+              optional :detail, enum: -> { Phoebe::Data::Observations::Geo::Recent::NotableListParams::Detail }
 
               # @!attribute dist
               #   The search radius from the given position, in kilometers.
