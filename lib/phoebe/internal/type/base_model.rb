@@ -52,6 +52,7 @@ module Phoebe
           #
           #   @option spec [Boolean] :"nil?"
           private def add_field(name_sym, required:, type_info:, spec:)
+            meta = Phoebe::Internal::Type::Converter.meta_info(type_info, spec)
             type_fn, info =
               case type_info
               in Proc | Phoebe::Internal::Type::Converter | Class
@@ -74,7 +75,8 @@ module Phoebe
                 required: required,
                 nilable: nilable,
                 const: const,
-                type_fn: type_fn
+                type_fn: type_fn,
+                meta: meta
               }
 
             define_method(setter) do |value|
