@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = "sayornis.phoebe.apis@gmail.com"
   s.homepage = "https://gemdocs.org/gems/phoebe"
   s.metadata["homepage_uri"] = s.homepage
-  s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/phoebe-ruby"
+  s.metadata["source_code_uri"] = "https://github.com/phoebe-bird/phoebe-ruby"
   s.metadata["rubygems_mfa_required"] = false.to_s
   s.required_ruby_version = ">= 3.2.0"
 
