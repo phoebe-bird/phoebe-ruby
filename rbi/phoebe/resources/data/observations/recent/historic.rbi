@@ -32,13 +32,13 @@ module Phoebe
               ).returns(T::Array[Phoebe::Data::Observation])
             end
             def list(
-              # Path param:
+              # Path param
               d,
               # Path param: The country, subnational1, subnational2 or location code.
               region_code:,
-              # Path param:
+              # Path param
               y_:,
-              # Path param:
+              # Path param
               m:,
               # Query param: Only fetch observations from these taxonomic categories
               cat: nil,
