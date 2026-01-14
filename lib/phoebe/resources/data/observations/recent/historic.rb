@@ -14,13 +14,13 @@ module Phoebe
             #
             # @overload list(d, region_code:, y_:, m:, cat: nil, detail: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, rank: nil, spp_locale: nil, request_options: {})
             #
-            # @param d [Integer] Path param:
+            # @param d [Integer] Path param
             #
             # @param region_code [String] Path param: The country, subnational1, subnational2 or location code.
             #
-            # @param y_ [Integer] Path param:
+            # @param y_ [Integer] Path param
             #
-            # @param m [Integer] Path param:
+            # @param m [Integer] Path param
             #
             # @param cat [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Cat] Query param: Only fetch observations from these taxonomic categories
             #
