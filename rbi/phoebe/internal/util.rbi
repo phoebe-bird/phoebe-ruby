@@ -303,6 +303,26 @@ module Phoebe
       class << self
         # @api private
         sig do
+          params(query: Phoebe::Internal::AnyHash).returns(
+            Phoebe::Internal::AnyHash
+          )
+        end
+        def encode_query_params(query)
+        end
+
+        # @api private
+        sig do
+          params(
+            collection: Phoebe::Internal::AnyHash,
+            key: String,
+            element: T.anything
+          ).void
+        end
+        private def write_query_param_element!(collection, key, element)
+        end
+
+        # @api private
+        sig do
           params(
             y: Enumerator::Yielder,
             val: T.anything,

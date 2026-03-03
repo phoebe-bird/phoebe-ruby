@@ -5,6 +5,11 @@ module Phoebe
     class Data
       class Observations
         class Recent
+          # The data/obs end-points are used to fetch observations submitted to eBird in
+          # checklists. There are two categories of end-point: 1. Fetch observations for a
+          # specific country, region or location. 2. Fetch observations for nearby
+          # locations - up to a distance of 50km. Each end-point supports optional query
+          # parameters which allow you to filter the list of observations returned.
           class Species
             # Get the recent observations, up to 30 days ago, of a particular species in a
             # country, region or location. Results include only the most recent observation

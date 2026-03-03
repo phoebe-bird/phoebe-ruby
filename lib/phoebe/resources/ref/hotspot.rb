@@ -3,10 +3,16 @@
 module Phoebe
   module Resources
     class Ref
+      # With the ref/hotspot end-points you can find the hotspots for a given country or
+      # region or nearby hotspots
       class Hotspot
+        # With the ref/hotspot end-points you can find the hotspots for a given country or
+        # region or nearby hotspots
         # @return [Phoebe::Resources::Ref::Hotspot::Geo]
         attr_reader :geo
 
+        # With the ref/hotspot end-points you can find the hotspots for a given country or
+        # region or nearby hotspots
         # @return [Phoebe::Resources::Ref::Hotspot::Info]
         attr_reader :info
 
@@ -27,10 +33,11 @@ module Phoebe
         # @see Phoebe::Models::Ref::HotspotListParams
         def list(region_code, params = {})
           parsed, options = Phoebe::Ref::HotspotListParams.dump_request(params)
+          query = Phoebe::Internal::Util.encode_query_params(parsed)
           @client.request(
             method: :get,
             path: ["ref/hotspot/%1$s", region_code],
-            query: parsed,
+            query: query,
             model: Phoebe::Internal::Type::ArrayOf[Phoebe::Models::Ref::HotspotListResponseItem],
             options: options
           )

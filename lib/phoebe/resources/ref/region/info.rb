@@ -4,6 +4,7 @@ module Phoebe
   module Resources
     class Ref
       class Region
+        # The ref/region end-points return information on regions.
         class Info
           # Get information on the name and geographical area covered by a region.
           #
@@ -36,10 +37,11 @@ module Phoebe
           # @see Phoebe::Models::Ref::Region::InfoRetrieveParams
           def retrieve(region_code, params = {})
             parsed, options = Phoebe::Ref::Region::InfoRetrieveParams.dump_request(params)
+            query = Phoebe::Internal::Util.encode_query_params(parsed)
             @client.request(
               method: :get,
               path: ["ref/region/info/%1$s", region_code],
-              query: parsed.transform_keys(region_name_format: "regionNameFormat"),
+              query: query.transform_keys(region_name_format: "regionNameFormat"),
               model: Phoebe::Models::Ref::Region::InfoRetrieveResponse,
               options: options
             )

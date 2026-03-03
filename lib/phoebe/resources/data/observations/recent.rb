@@ -4,13 +4,33 @@ module Phoebe
   module Resources
     class Data
       class Observations
+        # The data/obs end-points are used to fetch observations submitted to eBird in
+        # checklists. There are two categories of end-point: 1. Fetch observations for a
+        # specific country, region or location. 2. Fetch observations for nearby
+        # locations - up to a distance of 50km. Each end-point supports optional query
+        # parameters which allow you to filter the list of observations returned.
         class Recent
+          # The data/obs end-points are used to fetch observations submitted to eBird in
+          # checklists. There are two categories of end-point: 1. Fetch observations for a
+          # specific country, region or location. 2. Fetch observations for nearby
+          # locations - up to a distance of 50km. Each end-point supports optional query
+          # parameters which allow you to filter the list of observations returned.
           # @return [Phoebe::Resources::Data::Observations::Recent::Notable]
           attr_reader :notable
 
+          # The data/obs end-points are used to fetch observations submitted to eBird in
+          # checklists. There are two categories of end-point: 1. Fetch observations for a
+          # specific country, region or location. 2. Fetch observations for nearby
+          # locations - up to a distance of 50km. Each end-point supports optional query
+          # parameters which allow you to filter the list of observations returned.
           # @return [Phoebe::Resources::Data::Observations::Recent::Species]
           attr_reader :species
 
+          # The data/obs end-points are used to fetch observations submitted to eBird in
+          # checklists. There are two categories of end-point: 1. Fetch observations for a
+          # specific country, region or location. 2. Fetch observations for nearby
+          # locations - up to a distance of 50km. Each end-point supports optional query
+          # parameters which allow you to filter the list of observations returned.
           # @return [Phoebe::Resources::Data::Observations::Recent::Historic]
           attr_reader :historic
 
@@ -43,10 +63,11 @@ module Phoebe
           # @see Phoebe::Models::Data::Observations::RecentListParams
           def list(region_code, params = {})
             parsed, options = Phoebe::Data::Observations::RecentListParams.dump_request(params)
+            query = Phoebe::Internal::Util.encode_query_params(parsed)
             @client.request(
               method: :get,
               path: ["data/obs/%1$s/recent", region_code],
-              query: parsed.transform_keys(
+              query: query.transform_keys(
                 include_provisional: "includeProvisional",
                 max_results: "maxResults",
                 spp_locale: "sppLocale"

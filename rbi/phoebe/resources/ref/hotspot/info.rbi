@@ -4,6 +4,8 @@ module Phoebe
   module Resources
     class Ref
       class Hotspot
+        # With the ref/hotspot end-points you can find the hotspots for a given country or
+        # region or nearby hotspots
         class Info
           # Get information on the location of a hotspot. #### Notes This API call only
           # works for hotspots. If you pass the location code for a private location or an
