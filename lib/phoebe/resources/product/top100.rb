@@ -3,6 +3,11 @@
 module Phoebe
   module Resources
     class Product
+      # The product end-points make it easy to get the information shown in various
+      # pages on the eBird web site: 1. The Top 100 contributors on a given date. 2. The
+      # checklists submitted on a given date. 3. The most recent checklists
+      # submitted. 4. A summary of the checklists submitted on a given date. 5. The
+      # details and all the observations of a checklist.
       class Top100
         # Some parameter documentations has been truncated, see
         # {Phoebe::Models::Product::Top100RetrieveParams} for more details.
@@ -46,6 +51,7 @@ module Phoebe
         # @see Phoebe::Models::Product::Top100RetrieveParams
         def retrieve(d, params)
           parsed, options = Phoebe::Product::Top100RetrieveParams.dump_request(params)
+          query = Phoebe::Internal::Util.encode_query_params(parsed)
           region_code =
             parsed.delete(:region_code) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -61,7 +67,7 @@ module Phoebe
           @client.request(
             method: :get,
             path: ["product/top100/%1$s/%2$s/%3$s/%4$s", region_code, y_, m, d],
-            query: parsed.transform_keys(max_results: "maxResults", ranked_by: "rankedBy"),
+            query: query.transform_keys(max_results: "maxResults", ranked_by: "rankedBy"),
             model: Phoebe::Internal::Type::ArrayOf[Phoebe::Models::Product::Top100RetrieveResponseItem],
             options: options
           )

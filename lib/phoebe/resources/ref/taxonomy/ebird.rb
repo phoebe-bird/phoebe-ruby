@@ -29,10 +29,11 @@ module Phoebe
           # @see Phoebe::Models::Ref::Taxonomy::EbirdRetrieveParams
           def retrieve(params = {})
             parsed, options = Phoebe::Ref::Taxonomy::EbirdRetrieveParams.dump_request(params)
+            query = Phoebe::Internal::Util.encode_query_params(parsed)
             @client.request(
               method: :get,
               path: "ref/taxonomy/ebird",
-              query: parsed,
+              query: query,
               model: Phoebe::Internal::Type::ArrayOf[Phoebe::Models::Ref::Taxonomy::EbirdRetrieveResponseItem],
               options: options
             )

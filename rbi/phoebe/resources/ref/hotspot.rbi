@@ -3,10 +3,16 @@
 module Phoebe
   module Resources
     class Ref
+      # With the ref/hotspot end-points you can find the hotspots for a given country or
+      # region or nearby hotspots
       class Hotspot
+        # With the ref/hotspot end-points you can find the hotspots for a given country or
+        # region or nearby hotspots
         sig { returns(Phoebe::Resources::Ref::Hotspot::Geo) }
         attr_reader :geo
 
+        # With the ref/hotspot end-points you can find the hotspots for a given country or
+        # region or nearby hotspots
         sig { returns(Phoebe::Resources::Ref::Hotspot::Info) }
         attr_reader :info
 

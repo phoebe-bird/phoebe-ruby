@@ -6,6 +6,8 @@ module Phoebe
       sig { returns(Phoebe::Resources::Ref::Region) }
       attr_reader :region
 
+      # With the ref/hotspot end-points you can find the hotspots for a given country or
+      # region or nearby hotspots
       sig { returns(Phoebe::Resources::Ref::Hotspot) }
       attr_reader :hotspot
 

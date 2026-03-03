@@ -6,6 +6,11 @@ module Phoebe
       class Observations
         class Geo
           class Recent
+            # The data/obs end-points are used to fetch observations submitted to eBird in
+            # checklists. There are two categories of end-point: 1. Fetch observations for a
+            # specific country, region or location. 2. Fetch observations for nearby
+            # locations - up to a distance of 50km. Each end-point supports optional query
+            # parameters which allow you to filter the list of observations returned.
             class Species
               # Get all observations of a species, seen up to 30 days ago, at any location
               # within a radius of up to 50 kilometers, from a given set of coordinates. Results
@@ -50,10 +55,11 @@ module Phoebe
               # @see Phoebe::Models::Data::Observations::Geo::Recent::SpecieListParams
               def list(species_code, params)
                 parsed, options = Phoebe::Data::Observations::Geo::Recent::SpecieListParams.dump_request(params)
+                query = Phoebe::Internal::Util.encode_query_params(parsed)
                 @client.request(
                   method: :get,
                   path: ["data/obs/geo/recent/%1$s", species_code],
-                  query: parsed.transform_keys(
+                  query: query.transform_keys(
                     include_provisional: "includeProvisional",
                     max_results: "maxResults",
                     spp_locale: "sppLocale"

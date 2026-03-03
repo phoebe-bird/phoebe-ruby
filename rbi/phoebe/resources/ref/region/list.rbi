@@ -4,6 +4,7 @@ module Phoebe
   module Resources
     class Ref
       class Region
+        # The ref/region end-points return information on regions.
         class List
           # Get the list of sub-regions for a given country or region. #### Notes Not all
           # combinations of region type and region code are valid. You can fetch all the

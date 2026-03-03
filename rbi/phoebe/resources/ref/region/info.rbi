@@ -4,6 +4,7 @@ module Phoebe
   module Resources
     class Ref
       class Region
+        # The ref/region end-points return information on regions.
         class Info
           # Get information on the name and geographical area covered by a region.
           #

@@ -5,10 +5,25 @@ module Phoebe
     class Data
       class Observations
         class Geo
+          # The data/obs end-points are used to fetch observations submitted to eBird in
+          # checklists. There are two categories of end-point: 1. Fetch observations for a
+          # specific country, region or location. 2. Fetch observations for nearby
+          # locations - up to a distance of 50km. Each end-point supports optional query
+          # parameters which allow you to filter the list of observations returned.
           class Recent
+            # The data/obs end-points are used to fetch observations submitted to eBird in
+            # checklists. There are two categories of end-point: 1. Fetch observations for a
+            # specific country, region or location. 2. Fetch observations for nearby
+            # locations - up to a distance of 50km. Each end-point supports optional query
+            # parameters which allow you to filter the list of observations returned.
             # @return [Phoebe::Resources::Data::Observations::Geo::Recent::Species]
             attr_reader :species
 
+            # The data/obs end-points are used to fetch observations submitted to eBird in
+            # checklists. There are two categories of end-point: 1. Fetch observations for a
+            # specific country, region or location. 2. Fetch observations for nearby
+            # locations - up to a distance of 50km. Each end-point supports optional query
+            # parameters which allow you to filter the list of observations returned.
             # @return [Phoebe::Resources::Data::Observations::Geo::Recent::Notable]
             attr_reader :notable
 
@@ -46,10 +61,11 @@ module Phoebe
             # @see Phoebe::Models::Data::Observations::Geo::RecentListParams
             def list(params)
               parsed, options = Phoebe::Data::Observations::Geo::RecentListParams.dump_request(params)
+              query = Phoebe::Internal::Util.encode_query_params(parsed)
               @client.request(
                 method: :get,
                 path: "data/obs/geo/recent",
-                query: parsed.transform_keys(
+                query: query.transform_keys(
                   include_provisional: "includeProvisional",
                   max_results: "maxResults",
                   spp_locale: "sppLocale"
