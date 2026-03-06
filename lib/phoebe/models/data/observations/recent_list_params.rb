@@ -9,6 +9,11 @@ module Phoebe
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
+          # @!attribute region_code
+          #
+          #   @return [String]
+          required :region_code, String
+
           # @!attribute back
           #   The number of days back to fetch observations.
           #
@@ -51,7 +56,9 @@ module Phoebe
           #   @return [String, nil]
           optional :spp_locale, String
 
-          # @!method initialize(back: nil, cat: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, spp_locale: nil, request_options: {})
+          # @!method initialize(region_code:, back: nil, cat: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, spp_locale: nil, request_options: {})
+          #   @param region_code [String]
+          #
           #   @param back [Integer] The number of days back to fetch observations.
           #
           #   @param cat [Symbol, Phoebe::Models::Data::Observations::RecentListParams::Cat] Only fetch observations from these taxonomic categories

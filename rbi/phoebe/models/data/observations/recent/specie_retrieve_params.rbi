@@ -20,6 +20,9 @@ module Phoebe
             sig { returns(String) }
             attr_accessor :region_code
 
+            sig { returns(String) }
+            attr_accessor :species_code
+
             # The number of days back to fetch observations.
             sig { returns(T.nilable(Integer)) }
             attr_reader :back
@@ -65,6 +68,7 @@ module Phoebe
             sig do
               params(
                 region_code: String,
+                species_code: String,
                 back: Integer,
                 hotspot: T::Boolean,
                 include_provisional: T::Boolean,
@@ -76,6 +80,7 @@ module Phoebe
             end
             def self.new(
               region_code:,
+              species_code:,
               # The number of days back to fetch observations.
               back: nil,
               # Only fetch observations from hotspots
@@ -96,6 +101,7 @@ module Phoebe
               override.returns(
                 {
                   region_code: String,
+                  species_code: String,
                   back: Integer,
                   hotspot: T::Boolean,
                   include_provisional: T::Boolean,

@@ -9,6 +9,12 @@ module Phoebe
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
+          # @!attribute species_grouping
+          #   The order in which groups are returned.
+          #
+          #   @return [Symbol, Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping]
+          required :species_grouping, enum: -> { Phoebe::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping }
+
           # @!attribute group_name_locale
           #   Locale for species group names. English names are returned for any non-listed
           #   locale or any non-translated group name.
@@ -16,9 +22,11 @@ module Phoebe
           #   @return [String, nil]
           optional :group_name_locale, String
 
-          # @!method initialize(group_name_locale: nil, request_options: {})
+          # @!method initialize(species_grouping:, group_name_locale: nil, request_options: {})
           #   Some parameter documentations has been truncated, see
           #   {Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams} for more details.
+          #
+          #   @param species_grouping [Symbol, Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping] The order in which groups are returned.
           #
           #   @param group_name_locale [String] Locale for species group names. English names are returned for any non-listed lo
           #

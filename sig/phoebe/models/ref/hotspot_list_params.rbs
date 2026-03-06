@@ -2,12 +2,18 @@ module Phoebe
   module Models
     module Ref
       type hotspot_list_params =
-        { back: Integer, fmt: Phoebe::Models::Ref::HotspotListParams::fmt }
+        {
+          region_code: String,
+          back: Integer,
+          fmt: Phoebe::Models::Ref::HotspotListParams::fmt
+        }
         & Phoebe::Internal::Type::request_parameters
 
       class HotspotListParams < Phoebe::Internal::Type::BaseModel
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
+
+        attr_accessor region_code: String
 
         attr_reader back: Integer?
 
@@ -20,12 +26,14 @@ module Phoebe
         ) -> Phoebe::Models::Ref::HotspotListParams::fmt
 
         def initialize: (
+          region_code: String,
           ?back: Integer,
           ?fmt: Phoebe::Models::Ref::HotspotListParams::fmt,
           ?request_options: Phoebe::request_opts
         ) -> void
 
         def to_hash: -> {
+          region_code: String,
           back: Integer,
           fmt: Phoebe::Models::Ref::HotspotListParams::fmt,
           request_options: Phoebe::RequestOptions

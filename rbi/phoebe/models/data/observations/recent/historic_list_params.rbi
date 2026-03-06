@@ -26,6 +26,9 @@ module Phoebe
             sig { returns(Integer) }
             attr_accessor :m
 
+            sig { returns(Integer) }
+            attr_accessor :d
+
             # Only fetch observations from these taxonomic categories
             sig do
               returns(
@@ -120,6 +123,7 @@ module Phoebe
                 region_code: String,
                 y_: Integer,
                 m: Integer,
+                d: Integer,
                 cat:
                   Phoebe::Data::Observations::Recent::HistoricListParams::Cat::OrSymbol,
                 detail:
@@ -138,6 +142,7 @@ module Phoebe
               region_code:,
               y_:,
               m:,
+              d:,
               # Only fetch observations from these taxonomic categories
               cat: nil,
               # Include a subset (simple), or all (full), of the fields available.
@@ -164,6 +169,7 @@ module Phoebe
                   region_code: String,
                   y_: Integer,
                   m: Integer,
+                  d: Integer,
                   cat:
                     Phoebe::Data::Observations::Recent::HistoricListParams::Cat::OrSymbol,
                   detail:

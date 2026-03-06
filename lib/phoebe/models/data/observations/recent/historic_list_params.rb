@@ -25,6 +25,11 @@ module Phoebe
             #   @return [Integer]
             required :m, Integer
 
+            # @!attribute d
+            #
+            #   @return [Integer]
+            required :d, Integer
+
             # @!attribute cat
             #   Only fetch observations from these taxonomic categories
             #
@@ -73,12 +78,14 @@ module Phoebe
             #   @return [String, nil]
             optional :spp_locale, String
 
-            # @!method initialize(region_code:, y_:, m:, cat: nil, detail: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, rank: nil, spp_locale: nil, request_options: {})
+            # @!method initialize(region_code:, y_:, m:, d:, cat: nil, detail: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, rank: nil, spp_locale: nil, request_options: {})
             #   @param region_code [String]
             #
             #   @param y_ [Integer]
             #
             #   @param m [Integer]
+            #
+            #   @param d [Integer]
             #
             #   @param cat [Symbol, Phoebe::Models::Data::Observations::Recent::HistoricListParams::Cat] Only fetch observations from these taxonomic categories
             #

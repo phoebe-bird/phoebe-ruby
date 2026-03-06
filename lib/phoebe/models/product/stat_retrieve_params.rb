@@ -23,10 +23,16 @@ module Phoebe
         #   @return [Integer]
         required :m, Integer
 
-        # @!method initialize(region_code:, y_:, m:, request_options: {})
+        # @!attribute d
+        #
+        #   @return [Integer]
+        required :d, Integer
+
+        # @!method initialize(region_code:, y_:, m:, d:, request_options: {})
         #   @param region_code [String]
         #   @param y_ [Integer]
         #   @param m [Integer]
+        #   @param d [Integer]
         #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
       end
     end
