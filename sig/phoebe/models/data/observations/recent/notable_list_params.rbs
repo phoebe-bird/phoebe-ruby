@@ -5,6 +5,7 @@ module Phoebe
         module Recent
           type notable_list_params =
             {
+              region_code: String,
               back: Integer,
               detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail,
               hotspot: bool,
@@ -17,6 +18,8 @@ module Phoebe
           class NotableListParams < Phoebe::Internal::Type::BaseModel
             extend Phoebe::Internal::Type::RequestParameters::Converter
             include Phoebe::Internal::Type::RequestParameters
+
+            attr_accessor region_code: String
 
             attr_reader back: Integer?
 
@@ -45,6 +48,7 @@ module Phoebe
             def spp_locale=: (String) -> String
 
             def initialize: (
+              region_code: String,
               ?back: Integer,
               ?detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail,
               ?hotspot: bool,
@@ -55,6 +59,7 @@ module Phoebe
             ) -> void
 
             def to_hash: -> {
+              region_code: String,
               back: Integer,
               detail: Phoebe::Models::Data::Observations::Recent::NotableListParams::detail,
               hotspot: bool,

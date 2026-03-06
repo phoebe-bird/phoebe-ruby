@@ -6,6 +6,7 @@ module Phoebe
           type specie_retrieve_params =
             {
               region_code: String,
+              species_code: String,
               back: Integer,
               hotspot: bool,
               include_provisional: bool,
@@ -20,6 +21,8 @@ module Phoebe
             include Phoebe::Internal::Type::RequestParameters
 
             attr_accessor region_code: String
+
+            attr_accessor species_code: String
 
             attr_reader back: Integer?
 
@@ -47,6 +50,7 @@ module Phoebe
 
             def initialize: (
               region_code: String,
+              species_code: String,
               ?back: Integer,
               ?hotspot: bool,
               ?include_provisional: bool,
@@ -58,6 +62,7 @@ module Phoebe
 
             def to_hash: -> {
               region_code: String,
+              species_code: String,
               back: Integer,
               hotspot: bool,
               include_provisional: bool,

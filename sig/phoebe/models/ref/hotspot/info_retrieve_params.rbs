@@ -3,15 +3,23 @@ module Phoebe
     module Ref
       module Hotspot
         type info_retrieve_params =
-          {  } & Phoebe::Internal::Type::request_parameters
+          { loc_id: String } & Phoebe::Internal::Type::request_parameters
 
         class InfoRetrieveParams < Phoebe::Internal::Type::BaseModel
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
-          def initialize: (?request_options: Phoebe::request_opts) -> void
+          attr_accessor loc_id: String
 
-          def to_hash: -> { request_options: Phoebe::RequestOptions }
+          def initialize: (
+            loc_id: String,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            loc_id: String,
+            request_options: Phoebe::RequestOptions
+          }
         end
       end
     end

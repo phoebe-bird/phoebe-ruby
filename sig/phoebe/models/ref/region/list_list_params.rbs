@@ -5,6 +5,7 @@ module Phoebe
         type list_list_params =
           {
             region_type: String,
+            parent_region_code: String,
             fmt: Phoebe::Models::Ref::Region::ListListParams::fmt
           }
           & Phoebe::Internal::Type::request_parameters
@@ -15,6 +16,8 @@ module Phoebe
 
           attr_accessor region_type: String
 
+          attr_accessor parent_region_code: String
+
           attr_reader fmt: Phoebe::Models::Ref::Region::ListListParams::fmt?
 
           def fmt=: (
@@ -23,12 +26,14 @@ module Phoebe
 
           def initialize: (
             region_type: String,
+            parent_region_code: String,
             ?fmt: Phoebe::Models::Ref::Region::ListListParams::fmt,
             ?request_options: Phoebe::request_opts
           ) -> void
 
           def to_hash: -> {
             region_type: String,
+            parent_region_code: String,
             fmt: Phoebe::Models::Ref::Region::ListListParams::fmt,
             request_options: Phoebe::RequestOptions
           }

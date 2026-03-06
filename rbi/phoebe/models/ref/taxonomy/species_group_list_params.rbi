@@ -16,6 +16,14 @@ module Phoebe
               )
             end
 
+          # The order in which groups are returned.
+          sig do
+            returns(
+              Phoebe::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping::OrSymbol
+            )
+          end
+          attr_accessor :species_grouping
+
           # Locale for species group names. English names are returned for any non-listed
           # locale or any non-translated group name.
           sig { returns(T.nilable(String)) }
@@ -26,11 +34,15 @@ module Phoebe
 
           sig do
             params(
+              species_grouping:
+                Phoebe::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping::OrSymbol,
               group_name_locale: String,
               request_options: Phoebe::RequestOptions::OrHash
             ).returns(T.attached_class)
           end
           def self.new(
+            # The order in which groups are returned.
+            species_grouping:,
             # Locale for species group names. English names are returned for any non-listed
             # locale or any non-translated group name.
             group_name_locale: nil,
@@ -41,6 +53,8 @@ module Phoebe
           sig do
             override.returns(
               {
+                species_grouping:
+                  Phoebe::Ref::Taxonomy::SpeciesGroupListParams::SpeciesGrouping::OrSymbol,
                 group_name_locale: String,
                 request_options: Phoebe::RequestOptions
               }

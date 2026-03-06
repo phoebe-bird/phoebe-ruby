@@ -8,6 +8,11 @@ module Phoebe
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
 
+        # @!attribute region_code
+        #
+        #   @return [String]
+        required :region_code, String
+
         # @!attribute back
         #   The number of days back to fetch hotspots.
         #
@@ -20,7 +25,9 @@ module Phoebe
         #   @return [Symbol, Phoebe::Models::Ref::HotspotListParams::Fmt, nil]
         optional :fmt, enum: -> { Phoebe::Ref::HotspotListParams::Fmt }
 
-        # @!method initialize(back: nil, fmt: nil, request_options: {})
+        # @!method initialize(region_code:, back: nil, fmt: nil, request_options: {})
+        #   @param region_code [String]
+        #
         #   @param back [Integer] The number of days back to fetch hotspots.
         #
         #   @param fmt [Symbol, Phoebe::Models::Ref::HotspotListParams::Fmt] Fetch the records in CSV or JSON format.

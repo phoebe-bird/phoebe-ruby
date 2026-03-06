@@ -5,6 +5,7 @@ module Phoebe
         module Nearest
           type geo_specie_list_params =
             {
+              species_code: String,
               lat: Float,
               lng: Float,
               back: Integer,
@@ -19,6 +20,8 @@ module Phoebe
           class GeoSpecieListParams < Phoebe::Internal::Type::BaseModel
             extend Phoebe::Internal::Type::RequestParameters::Converter
             include Phoebe::Internal::Type::RequestParameters
+
+            attr_accessor species_code: String
 
             attr_accessor lat: Float
 
@@ -49,6 +52,7 @@ module Phoebe
             def spp_locale=: (String) -> String
 
             def initialize: (
+              species_code: String,
               lat: Float,
               lng: Float,
               ?back: Integer,
@@ -61,6 +65,7 @@ module Phoebe
             ) -> void
 
             def to_hash: -> {
+              species_code: String,
               lat: Float,
               lng: Float,
               back: Integer,

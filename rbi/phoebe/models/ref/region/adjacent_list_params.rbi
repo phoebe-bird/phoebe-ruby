@@ -16,15 +16,23 @@ module Phoebe
               )
             end
 
+          sig { returns(String) }
+          attr_accessor :region_code
+
           sig do
-            params(request_options: Phoebe::RequestOptions::OrHash).returns(
-              T.attached_class
-            )
+            params(
+              region_code: String,
+              request_options: Phoebe::RequestOptions::OrHash
+            ).returns(T.attached_class)
           end
-          def self.new(request_options: {})
+          def self.new(region_code:, request_options: {})
           end
 
-          sig { override.returns({ request_options: Phoebe::RequestOptions }) }
+          sig do
+            override.returns(
+              { region_code: String, request_options: Phoebe::RequestOptions }
+            )
+          end
           def to_hash
           end
         end

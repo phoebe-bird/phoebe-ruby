@@ -8,13 +8,20 @@ module Phoebe
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
 
+        # @!attribute region_code
+        #
+        #   @return [String]
+        required :region_code, String
+
         # @!attribute max_results
         #   Only fetch this number of checklists.
         #
         #   @return [Integer, nil]
         optional :max_results, Integer
 
-        # @!method initialize(max_results: nil, request_options: {})
+        # @!method initialize(region_code:, max_results: nil, request_options: {})
+        #   @param region_code [String]
+        #
         #   @param max_results [Integer] Only fetch this number of checklists.
         #
         #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]

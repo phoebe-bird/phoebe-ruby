@@ -17,6 +17,9 @@ module Phoebe
                 )
               end
 
+            sig { returns(String) }
+            attr_accessor :species_code
+
             sig { returns(Float) }
             attr_accessor :lat
 
@@ -67,6 +70,7 @@ module Phoebe
 
             sig do
               params(
+                species_code: String,
                 lat: Float,
                 lng: Float,
                 back: Integer,
@@ -79,6 +83,7 @@ module Phoebe
               ).returns(T.attached_class)
             end
             def self.new(
+              species_code:,
               lat:,
               lng:,
               # The number of days back to fetch observations.
@@ -100,6 +105,7 @@ module Phoebe
             sig do
               override.returns(
                 {
+                  species_code: String,
                   lat: Float,
                   lng: Float,
                   back: Integer,

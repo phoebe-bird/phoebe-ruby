@@ -25,6 +25,9 @@ module Phoebe
           sig { returns(Integer) }
           attr_accessor :m
 
+          sig { returns(Integer) }
+          attr_accessor :d
+
           # Only fetch this number of checklists.
           sig { returns(T.nilable(Integer)) }
           attr_reader :max_results
@@ -55,6 +58,7 @@ module Phoebe
               region_code: String,
               y_: Integer,
               m: Integer,
+              d: Integer,
               max_results: Integer,
               sort_key:
                 Phoebe::Product::Lists::HistoricalRetrieveParams::SortKey::OrSymbol,
@@ -65,6 +69,7 @@ module Phoebe
             region_code:,
             y_:,
             m:,
+            d:,
             # Only fetch this number of checklists.
             max_results: nil,
             # Order the results by the date of the checklist or by the date it was submitted.
@@ -79,6 +84,7 @@ module Phoebe
                 region_code: String,
                 y_: Integer,
                 m: Integer,
+                d: Integer,
                 max_results: Integer,
                 sort_key:
                   Phoebe::Product::Lists::HistoricalRetrieveParams::SortKey::OrSymbol,

@@ -24,15 +24,19 @@ module Phoebe
         sig { returns(Integer) }
         attr_accessor :m
 
+        sig { returns(Integer) }
+        attr_accessor :d
+
         sig do
           params(
             region_code: String,
             y_: Integer,
             m: Integer,
+            d: Integer,
             request_options: Phoebe::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
-        def self.new(region_code:, y_:, m:, request_options: {})
+        def self.new(region_code:, y_:, m:, d:, request_options: {})
         end
 
         sig do
@@ -41,6 +45,7 @@ module Phoebe
               region_code: String,
               y_: Integer,
               m: Integer,
+              d: Integer,
               request_options: Phoebe::RequestOptions
             }
           )

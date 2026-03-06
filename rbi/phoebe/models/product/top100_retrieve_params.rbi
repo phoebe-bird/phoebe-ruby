@@ -24,6 +24,9 @@ module Phoebe
         sig { returns(Integer) }
         attr_accessor :m
 
+        sig { returns(Integer) }
+        attr_accessor :d
+
         # Only fetch this number of contributors.
         sig { returns(T.nilable(Integer)) }
         attr_reader :max_results
@@ -51,6 +54,7 @@ module Phoebe
             region_code: String,
             y_: Integer,
             m: Integer,
+            d: Integer,
             max_results: Integer,
             ranked_by:
               Phoebe::Product::Top100RetrieveParams::RankedBy::OrSymbol,
@@ -61,6 +65,7 @@ module Phoebe
           region_code:,
           y_:,
           m:,
+          d:,
           # Only fetch this number of contributors.
           max_results: nil,
           # Order by number of complete checklists (cl) or by number of species seen (spp).
@@ -75,6 +80,7 @@ module Phoebe
               region_code: String,
               y_: Integer,
               m: Integer,
+              d: Integer,
               max_results: Integer,
               ranked_by:
                 Phoebe::Product::Top100RetrieveParams::RankedBy::OrSymbol,

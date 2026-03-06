@@ -19,6 +19,9 @@ module Phoebe
           sig { returns(String) }
           attr_accessor :region_type
 
+          sig { returns(String) }
+          attr_accessor :parent_region_code
+
           # Fetch the records in CSV or JSON format.
           sig do
             returns(
@@ -35,12 +38,14 @@ module Phoebe
           sig do
             params(
               region_type: String,
+              parent_region_code: String,
               fmt: Phoebe::Ref::Region::ListListParams::Fmt::OrSymbol,
               request_options: Phoebe::RequestOptions::OrHash
             ).returns(T.attached_class)
           end
           def self.new(
             region_type:,
+            parent_region_code:,
             # Fetch the records in CSV or JSON format.
             fmt: nil,
             request_options: {}
@@ -51,6 +56,7 @@ module Phoebe
             override.returns(
               {
                 region_type: String,
+                parent_region_code: String,
                 fmt: Phoebe::Ref::Region::ListListParams::Fmt::OrSymbol,
                 request_options: Phoebe::RequestOptions
               }

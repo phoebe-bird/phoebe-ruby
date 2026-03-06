@@ -11,6 +11,11 @@ module Phoebe
               extend Phoebe::Internal::Type::RequestParameters::Converter
               include Phoebe::Internal::Type::RequestParameters
 
+              # @!attribute species_code
+              #
+              #   @return [String]
+              required :species_code, String
+
               # @!attribute lat
               #
               #   @return [Float]
@@ -57,7 +62,9 @@ module Phoebe
               #   @return [String, nil]
               optional :spp_locale, String
 
-              # @!method initialize(lat:, lng:, back: nil, dist: nil, hotspot: nil, include_provisional: nil, max_results: nil, spp_locale: nil, request_options: {})
+              # @!method initialize(species_code:, lat:, lng:, back: nil, dist: nil, hotspot: nil, include_provisional: nil, max_results: nil, spp_locale: nil, request_options: {})
+              #   @param species_code [String]
+              #
               #   @param lat [Float]
               #
               #   @param lng [Float]

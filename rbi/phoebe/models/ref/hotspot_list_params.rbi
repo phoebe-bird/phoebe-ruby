@@ -12,6 +12,9 @@ module Phoebe
             T.any(Phoebe::Ref::HotspotListParams, Phoebe::Internal::AnyHash)
           end
 
+        sig { returns(String) }
+        attr_accessor :region_code
+
         # The number of days back to fetch hotspots.
         sig { returns(T.nilable(Integer)) }
         attr_reader :back
@@ -30,12 +33,14 @@ module Phoebe
 
         sig do
           params(
+            region_code: String,
             back: Integer,
             fmt: Phoebe::Ref::HotspotListParams::Fmt::OrSymbol,
             request_options: Phoebe::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
         def self.new(
+          region_code:,
           # The number of days back to fetch hotspots.
           back: nil,
           # Fetch the records in CSV or JSON format.
@@ -47,6 +52,7 @@ module Phoebe
         sig do
           override.returns(
             {
+              region_code: String,
               back: Integer,
               fmt: Phoebe::Ref::HotspotListParams::Fmt::OrSymbol,
               request_options: Phoebe::RequestOptions

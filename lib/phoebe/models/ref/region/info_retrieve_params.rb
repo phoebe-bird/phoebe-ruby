@@ -9,6 +9,11 @@ module Phoebe
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
+          # @!attribute region_code
+          #
+          #   @return [String]
+          required :region_code, String
+
           # @!attribute delim
           #   The characters used to separate elements in the name.
           #
@@ -21,7 +26,9 @@ module Phoebe
           #   @return [Symbol, Phoebe::Models::Ref::Region::InfoRetrieveParams::RegionNameFormat, nil]
           optional :region_name_format, enum: -> { Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat }
 
-          # @!method initialize(delim: nil, region_name_format: nil, request_options: {})
+          # @!method initialize(region_code:, delim: nil, region_name_format: nil, request_options: {})
+          #   @param region_code [String]
+          #
           #   @param delim [String] The characters used to separate elements in the name.
           #
           #   @param region_name_format [Symbol, Phoebe::Models::Ref::Region::InfoRetrieveParams::RegionNameFormat] Control how the name is displayed.

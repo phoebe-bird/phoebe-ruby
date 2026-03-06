@@ -16,6 +16,9 @@ module Phoebe
               )
             end
 
+          sig { returns(String) }
+          attr_accessor :region_code
+
           # The number of days back to fetch observations.
           sig { returns(T.nilable(Integer)) }
           attr_reader :back
@@ -77,6 +80,7 @@ module Phoebe
 
           sig do
             params(
+              region_code: String,
               back: Integer,
               cat: Phoebe::Data::Observations::RecentListParams::Cat::OrSymbol,
               hotspot: T::Boolean,
@@ -88,6 +92,7 @@ module Phoebe
             ).returns(T.attached_class)
           end
           def self.new(
+            region_code:,
             # The number of days back to fetch observations.
             back: nil,
             # Only fetch observations from these taxonomic categories
@@ -109,6 +114,7 @@ module Phoebe
           sig do
             override.returns(
               {
+                region_code: String,
                 back: Integer,
                 cat:
                   Phoebe::Data::Observations::RecentListParams::Cat::OrSymbol,
