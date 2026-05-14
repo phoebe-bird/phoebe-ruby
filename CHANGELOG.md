@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.0-alpha.3](https://github.com/phoebe-bird/phoebe-ruby/compare/v0.1.0-alpha.2...v0.1.0-alpha.3) (2026-05-14)
+
+
+### Features
+
+* initial stlc build ([9962257](https://github.com/phoebe-bird/phoebe-ruby/commit/996225799adca84237bb96693418261e5c5404fd))
+
+
+### Chores
+
+* enable release-please ([2f7728f](https://github.com/phoebe-bird/phoebe-ruby/commit/2f7728fa4d35ecef5d9dc82473268d9741d43147))
+* regenerate from phoebe-config[#2](https://github.com/phoebe-bird/phoebe-ruby/issues/2) ([da60c3a](https://github.com/phoebe-bird/phoebe-ruby/commit/da60c3a6d521e6f13e6f0db54f8c17a9591b995c))
+* regenerate SDKs from phoebe-config[#2](https://github.com/phoebe-bird/phoebe-ruby/issues/2) (feat: bump openapi info.version to 1.0.2 (Phase 9 dry run [#2](https://github.com/phoebe-bird/phoebe-ruby/issues/2))) ([5c3874a](https://github.com/phoebe-bird/phoebe-ruby/commit/5c3874a4379341b92e4300d1bbcbc54e44c2ed1f))
+
 ## 0.1.0-alpha.2 (2026-05-14)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/phoebe-bird/phoebe-ruby/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
