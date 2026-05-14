@@ -14,14 +14,21 @@ module Phoebe
           #   @return [String]
           required :region_type, String
 
+          # @!attribute parent_region_code
+          #
+          #   @return [String]
+          required :parent_region_code, String
+
           # @!attribute fmt
           #   Fetch the records in CSV or JSON format.
           #
           #   @return [Symbol, Phoebe::Models::Ref::Region::ListListParams::Fmt, nil]
           optional :fmt, enum: -> { Phoebe::Ref::Region::ListListParams::Fmt }
 
-          # @!method initialize(region_type:, fmt: nil, request_options: {})
+          # @!method initialize(region_type:, parent_region_code:, fmt: nil, request_options: {})
           #   @param region_type [String]
+          #
+          #   @param parent_region_code [String]
           #
           #   @param fmt [Symbol, Phoebe::Models::Ref::Region::ListListParams::Fmt] Fetch the records in CSV or JSON format.
           #

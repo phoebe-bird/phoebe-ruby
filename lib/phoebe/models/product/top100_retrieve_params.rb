@@ -23,6 +23,11 @@ module Phoebe
         #   @return [Integer]
         required :m, Integer
 
+        # @!attribute d
+        #
+        #   @return [Integer]
+        required :d, Integer
+
         # @!attribute max_results
         #   Only fetch this number of contributors.
         #
@@ -35,12 +40,14 @@ module Phoebe
         #   @return [Symbol, Phoebe::Models::Product::Top100RetrieveParams::RankedBy, nil]
         optional :ranked_by, enum: -> { Phoebe::Product::Top100RetrieveParams::RankedBy }
 
-        # @!method initialize(region_code:, y_:, m:, max_results: nil, ranked_by: nil, request_options: {})
+        # @!method initialize(region_code:, y_:, m:, d:, max_results: nil, ranked_by: nil, request_options: {})
         #   @param region_code [String]
         #
         #   @param y_ [Integer]
         #
         #   @param m [Integer]
+        #
+        #   @param d [Integer]
         #
         #   @param max_results [Integer] Only fetch this number of contributors.
         #

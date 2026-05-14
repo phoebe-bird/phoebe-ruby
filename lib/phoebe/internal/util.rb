@@ -157,7 +157,7 @@ module Phoebe
           in Hash | nil => coerced
             coerced
           else
-            message = "Expected a #{Hash} or #{Phoebe::Internal::Type::BaseModel}, got #{data.inspect}"
+            message = "Expected a #{Hash} or #{Phoebe::Internal::Type::BaseModel}, got #{input.inspect}"
             raise ArgumentError.new(message)
           end
         end
@@ -237,6 +237,11 @@ module Phoebe
         end
       end
 
+      # @type [Regexp]
+      #
+      # https://www.rfc-editor.org/rfc/rfc3986.html#section-3.3
+      RFC_3986_NOT_PCHARS = /[^A-Za-z0-9\-._~!$&'()*+,;=:@]+/
+
       class << self
         # @api private
         #
@@ -245,6 +250,15 @@ module Phoebe
         # @return [String]
         def uri_origin(uri)
           "#{uri.scheme}://#{uri.host}#{":#{uri.port}" unless uri.port == uri.default_port}"
+        end
+
+        # @api private
+        #
+        # @param path [String, Integer]
+        #
+        # @return [String]
+        def encode_path(path)
+          path.to_s.gsub(Phoebe::Internal::Util::RFC_3986_NOT_PCHARS) { ERB::Util.url_encode(_1) }
         end
 
         # @api private
@@ -259,7 +273,7 @@ module Phoebe
           in []
             ""
           in [String => p, *interpolations]
-            encoded = interpolations.map { ERB::Util.url_encode(_1) }
+            encoded = interpolations.map { encode_path(_1) }
             format(p, *encoded)
           end
         end
@@ -485,11 +499,42 @@ module Phoebe
       end
 
       # @type [Regexp]
-      JSON_CONTENT = %r{^application/(?:vnd(?:\.[^.]+)*\+)?json(?!l)}
+      JSON_CONTENT = %r{^application/(?:[a-zA-Z0-9.-]+\+)?json(?!l)}
       # @type [Regexp]
       JSONL_CONTENT = %r{^application/(:?x-(?:n|l)djson)|(:?(?:x-)?jsonl)}
 
       class << self
+        # @api private
+        #
+        # @param query [Hash{Symbol=>Object}]
+        #
+        # @return [Hash{Symbol=>Object}]
+        def encode_query_params(query)
+          out = {}
+          query.each { write_query_param_element!(out, _1, _2) }
+          out
+        end
+
+        # @api private
+        #
+        # @param collection [Hash{Symbol=>Object}]
+        # @param key [String]
+        # @param element [Object]
+        #
+        # @return [nil]
+        private def write_query_param_element!(collection, key, element)
+          case element
+          in Hash
+            element.each do |name, value|
+              write_query_param_element!(collection, "#{key}[#{name}]", value)
+            end
+          in Array
+            collection[key] = element.map(&:to_s).join(",")
+          else
+            collection[key] = element.to_s
+          end
+        end
+
         # @api private
         #
         # @param y [Enumerator::Yielder]
@@ -540,16 +585,15 @@ module Phoebe
           y << "Content-Disposition: form-data"
 
           unless key.nil?
-            name = ERB::Util.url_encode(key.to_s)
-            y << "; name=\"#{name}\""
+            y << "; name=\"#{key}\""
           end
 
           case val
           in Phoebe::FilePart unless val.filename.nil?
-            filename = ERB::Util.url_encode(val.filename)
+            filename = encode_path(val.filename)
             y << "; filename=\"#{filename}\""
           in Pathname | IO
-            filename = ERB::Util.url_encode(::File.basename(val.to_path))
+            filename = encode_path(::File.basename(val.to_path))
             y << "; filename=\"#{filename}\""
           else
           end
@@ -566,6 +610,7 @@ module Phoebe
         #
         # @return [Array(String, Enumerable<String>)]
         private def encode_multipart_streaming(body)
+          # rubocop:disable Style/CaseEquality
           # RFC 1521 Section 7.2.1 says we should have 70 char maximum for boundary length
           boundary = SecureRandom.urlsafe_base64(46)
 
@@ -575,7 +620,7 @@ module Phoebe
             in Hash
               body.each do |key, val|
                 case val
-                in Array if val.all? { primitive?(_1) }
+                in Array if val.all? { primitive?(_1) || Phoebe::Internal::Type::FileInput === _1 }
                   val.each do |v|
                     write_multipart_chunk(y, boundary: boundary, key: key, val: v, closing: closing)
                   end
@@ -591,6 +636,7 @@ module Phoebe
 
           fused_io = fused_enum(strio) { closing.each(&:call) }
           [boundary, fused_io]
+          # rubocop:enable Style/CaseEquality
         end
 
         # @api private
@@ -657,7 +703,8 @@ module Phoebe
         def decode_content(headers, stream:, suppress_error: false)
           case (content_type = headers["content-type"])
           in Phoebe::Internal::Util::JSON_CONTENT
-            json = stream.to_a.join
+            return nil if (json = stream.to_a.join).empty?
+
             begin
               JSON.parse(json, symbolize_names: true)
             rescue JSON::ParserError => e
@@ -667,7 +714,11 @@ module Phoebe
           in Phoebe::Internal::Util::JSONL_CONTENT
             lines = decode_lines(stream)
             chain_fused(lines) do |y|
-              lines.each { y << JSON.parse(_1, symbolize_names: true) }
+              lines.each do
+                next if _1.empty?
+
+                y << JSON.parse(_1, symbolize_names: true)
+              end
             end
           in %r{^text/event-stream}
             lines = decode_lines(stream)

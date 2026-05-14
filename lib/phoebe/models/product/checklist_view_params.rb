@@ -8,7 +8,13 @@ module Phoebe
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
 
-        # @!method initialize(request_options: {})
+        # @!attribute sub_id
+        #
+        #   @return [String]
+        required :sub_id, String
+
+        # @!method initialize(sub_id:, request_options: {})
+        #   @param sub_id [String]
         #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
       end
     end

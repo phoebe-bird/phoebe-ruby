@@ -17,6 +17,9 @@ module Phoebe
                 )
               end
 
+            sig { returns(String) }
+            attr_accessor :region_code
+
             # The number of days back to fetch observations.
             sig { returns(T.nilable(Integer)) }
             attr_reader :back
@@ -72,6 +75,7 @@ module Phoebe
 
             sig do
               params(
+                region_code: String,
                 back: Integer,
                 detail:
                   Phoebe::Data::Observations::Recent::NotableListParams::Detail::OrSymbol,
@@ -83,6 +87,7 @@ module Phoebe
               ).returns(T.attached_class)
             end
             def self.new(
+              region_code:,
               # The number of days back to fetch observations.
               back: nil,
               # Include a subset (simple), or all (full), of the fields available.
@@ -102,6 +107,7 @@ module Phoebe
             sig do
               override.returns(
                 {
+                  region_code: String,
                   back: Integer,
                   detail:
                     Phoebe::Data::Observations::Recent::NotableListParams::Detail::OrSymbol,

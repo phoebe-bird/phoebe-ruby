@@ -4,6 +4,7 @@ module Phoebe
   module Resources
     class Ref
       class Region
+        # The ref/region end-points return information on regions.
         class List
           # Get the list of sub-regions for a given country or region. #### Notes Not all
           # combinations of region type and region code are valid. You can fetch all the
@@ -25,6 +26,7 @@ module Phoebe
           # @see Phoebe::Models::Ref::Region::ListListParams
           def list(parent_region_code, params)
             parsed, options = Phoebe::Ref::Region::ListListParams.dump_request(params)
+            query = Phoebe::Internal::Util.encode_query_params(parsed)
             region_type =
               parsed.delete(:region_type) do
                 raise ArgumentError.new("missing required path argument #{_1}")
@@ -32,7 +34,7 @@ module Phoebe
             @client.request(
               method: :get,
               path: ["ref/region/list/%1$s/%2$s", region_type, parent_region_code],
-              query: parsed,
+              query: query,
               model: Phoebe::Internal::Type::ArrayOf[Phoebe::Models::Ref::Region::ListListResponseItem],
               options: options
             )

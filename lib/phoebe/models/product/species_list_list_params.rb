@@ -8,7 +8,13 @@ module Phoebe
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
 
-        # @!method initialize(request_options: {})
+        # @!attribute region_code
+        #
+        #   @return [String]
+        required :region_code, String
+
+        # @!method initialize(region_code:, request_options: {})
+        #   @param region_code [String]
         #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
       end
     end

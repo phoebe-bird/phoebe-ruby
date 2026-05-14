@@ -15,6 +15,11 @@ module Phoebe
             #   @return [String]
             required :region_code, String
 
+            # @!attribute species_code
+            #
+            #   @return [String]
+            required :species_code, String
+
             # @!attribute back
             #   The number of days back to fetch observations.
             #
@@ -51,8 +56,10 @@ module Phoebe
             #   @return [String, nil]
             optional :spp_locale, String
 
-            # @!method initialize(region_code:, back: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, spp_locale: nil, request_options: {})
+            # @!method initialize(region_code:, species_code:, back: nil, hotspot: nil, include_provisional: nil, max_results: nil, r: nil, spp_locale: nil, request_options: {})
             #   @param region_code [String]
+            #
+            #   @param species_code [String]
             #
             #   @param back [Integer] The number of days back to fetch observations.
             #

@@ -4,6 +4,7 @@ module Phoebe
       module Region
         type info_retrieve_params =
           {
+            region_code: String,
             delim: String,
             region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format
           }
@@ -12,6 +13,8 @@ module Phoebe
         class InfoRetrieveParams < Phoebe::Internal::Type::BaseModel
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
+
+          attr_accessor region_code: String
 
           attr_reader delim: String?
 
@@ -24,12 +27,14 @@ module Phoebe
           ) -> Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format
 
           def initialize: (
+            region_code: String,
             ?delim: String,
             ?region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format,
             ?request_options: Phoebe::request_opts
           ) -> void
 
           def to_hash: -> {
+            region_code: String,
             delim: String,
             region_name_format: Phoebe::Models::Ref::Region::InfoRetrieveParams::region_name_format,
             request_options: Phoebe::RequestOptions

@@ -3,23 +3,30 @@ module Phoebe
     module Ref
       module Taxonomy
         type species_group_list_params =
-          { group_name_locale: String }
+          {
+            species_grouping: Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::species_grouping,
+            group_name_locale: String
+          }
           & Phoebe::Internal::Type::request_parameters
 
         class SpeciesGroupListParams < Phoebe::Internal::Type::BaseModel
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
+          attr_accessor species_grouping: Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::species_grouping
+
           attr_reader group_name_locale: String?
 
           def group_name_locale=: (String) -> String
 
           def initialize: (
+            species_grouping: Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::species_grouping,
             ?group_name_locale: String,
             ?request_options: Phoebe::request_opts
           ) -> void
 
           def to_hash: -> {
+            species_grouping: Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams::species_grouping,
             group_name_locale: String,
             request_options: Phoebe::RequestOptions
           }

@@ -16,6 +16,9 @@ module Phoebe
               )
             end
 
+          sig { returns(String) }
+          attr_accessor :region_code
+
           # The characters used to separate elements in the name.
           sig { returns(T.nilable(String)) }
           attr_reader :delim
@@ -43,6 +46,7 @@ module Phoebe
 
           sig do
             params(
+              region_code: String,
               delim: String,
               region_name_format:
                 Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat::OrSymbol,
@@ -50,6 +54,7 @@ module Phoebe
             ).returns(T.attached_class)
           end
           def self.new(
+            region_code:,
             # The characters used to separate elements in the name.
             delim: nil,
             # Control how the name is displayed.
@@ -61,6 +66,7 @@ module Phoebe
           sig do
             override.returns(
               {
+                region_code: String,
                 delim: String,
                 region_name_format:
                   Phoebe::Ref::Region::InfoRetrieveParams::RegionNameFormat::OrSymbol,

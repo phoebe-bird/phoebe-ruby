@@ -4,6 +4,8 @@ module Phoebe
   module Resources
     class Ref
       class Hotspot
+        # With the ref/hotspot end-points you can find the hotspots for a given country or
+        # region or nearby hotspots
         class Geo
           # Get the list of hotspots, within a radius of up to 50 kilometers, from a given
           # set of coordinates.

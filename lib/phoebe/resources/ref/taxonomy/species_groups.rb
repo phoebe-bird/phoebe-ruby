@@ -25,10 +25,11 @@ module Phoebe
           # @see Phoebe::Models::Ref::Taxonomy::SpeciesGroupListParams
           def list(species_grouping, params = {})
             parsed, options = Phoebe::Ref::Taxonomy::SpeciesGroupListParams.dump_request(params)
+            query = Phoebe::Internal::Util.encode_query_params(parsed)
             @client.request(
               method: :get,
               path: ["ref/sppgroup/%1$s", species_grouping],
-              query: parsed.transform_keys(group_name_locale: "groupNameLocale"),
+              query: query.transform_keys(group_name_locale: "groupNameLocale"),
               model: Phoebe::Internal::Type::ArrayOf[Phoebe::Models::Ref::Taxonomy::SpeciesGroupListResponseItem],
               options: options
             )

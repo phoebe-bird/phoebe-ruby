@@ -9,7 +9,13 @@ module Phoebe
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
-          # @!method initialize(request_options: {})
+          # @!attribute species_code
+          #
+          #   @return [String]
+          required :species_code, String
+
+          # @!method initialize(species_code:, request_options: {})
+          #   @param species_code [String]
           #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
         end
       end

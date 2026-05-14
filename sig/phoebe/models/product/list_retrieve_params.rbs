@@ -2,22 +2,27 @@ module Phoebe
   module Models
     module Product
       type list_retrieve_params =
-        { max_results: Integer } & Phoebe::Internal::Type::request_parameters
+        { region_code: String, max_results: Integer }
+        & Phoebe::Internal::Type::request_parameters
 
       class ListRetrieveParams < Phoebe::Internal::Type::BaseModel
         extend Phoebe::Internal::Type::RequestParameters::Converter
         include Phoebe::Internal::Type::RequestParameters
+
+        attr_accessor region_code: String
 
         attr_reader max_results: Integer?
 
         def max_results=: (Integer) -> Integer
 
         def initialize: (
+          region_code: String,
           ?max_results: Integer,
           ?request_options: Phoebe::request_opts
         ) -> void
 
         def to_hash: -> {
+          region_code: String,
           max_results: Integer,
           request_options: Phoebe::RequestOptions
         }

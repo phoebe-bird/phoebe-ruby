@@ -15,6 +15,9 @@ module Phoebe
             )
           end
 
+        sig { returns(String) }
+        attr_accessor :region_code
+
         # Only fetch this number of checklists.
         sig { returns(T.nilable(Integer)) }
         attr_reader :max_results
@@ -24,11 +27,13 @@ module Phoebe
 
         sig do
           params(
+            region_code: String,
             max_results: Integer,
             request_options: Phoebe::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
         def self.new(
+          region_code:,
           # Only fetch this number of checklists.
           max_results: nil,
           request_options: {}
@@ -37,7 +42,11 @@ module Phoebe
 
         sig do
           override.returns(
-            { max_results: Integer, request_options: Phoebe::RequestOptions }
+            {
+              region_code: String,
+              max_results: Integer,
+              request_options: Phoebe::RequestOptions
+            }
           )
         end
         def to_hash

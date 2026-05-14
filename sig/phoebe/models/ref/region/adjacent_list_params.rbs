@@ -3,15 +3,23 @@ module Phoebe
     module Ref
       module Region
         type adjacent_list_params =
-          {  } & Phoebe::Internal::Type::request_parameters
+          { region_code: String } & Phoebe::Internal::Type::request_parameters
 
         class AdjacentListParams < Phoebe::Internal::Type::BaseModel
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
-          def initialize: (?request_options: Phoebe::request_opts) -> void
+          attr_accessor region_code: String
 
-          def to_hash: -> { request_options: Phoebe::RequestOptions }
+          def initialize: (
+            region_code: String,
+            ?request_options: Phoebe::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            region_code: String,
+            request_options: Phoebe::RequestOptions
+          }
         end
       end
     end

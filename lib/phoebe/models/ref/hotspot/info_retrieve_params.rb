@@ -9,7 +9,13 @@ module Phoebe
           extend Phoebe::Internal::Type::RequestParameters::Converter
           include Phoebe::Internal::Type::RequestParameters
 
-          # @!method initialize(request_options: {})
+          # @!attribute loc_id
+          #
+          #   @return [String]
+          required :loc_id, String
+
+          # @!method initialize(loc_id:, request_options: {})
+          #   @param loc_id [String]
           #   @param request_options [Phoebe::RequestOptions, Hash{Symbol=>Object}]
         end
       end
